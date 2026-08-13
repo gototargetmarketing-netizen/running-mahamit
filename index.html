@@ -385,16 +385,37 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
                         <!-- QR Code Display -->
                         <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
-                            <h4 class="text-brand-dark font-bold text-base mb-2">สแกน QR Code ชำระเงิน</h4>
-                            <p class="text-xs text-gray-500 mb-4">ชื่อบัญชี: บจก. เกรียงไกร มาหามิตร (กสิกรไทย)</p>
-                            <!-- Official promptpay mock QR code via placeholder or svg -->
-                            <div class="w-48 h-48 mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-2">
-                                <img src="./promptpay-qr.png" alt="QR Payment" class="w-40 h-40 object-contain mx-auto rounded">
-                            </div>
-                            <div id="displayPriceAmount" class="mt-4 text-brand-dark font-semibold text-sm sm:text-base bg-yellow-100 py-2.5 px-5 sm:px-7 rounded-full inline-block text-center leading-relaxed whitespace-pre-line max-w-full">
-    ยอดที่ต้องชำระ
+    <h4 class="text-brand-dark font-bold text-base mb-2">
+        สแกน QR Code ชำระเงิน
+    </h4>
+
+    <p class="text-xs text-gray-500 mb-4">
+        ชื่อบัญชี: บจก. เกรียงไกร มาหามิตร (กสิกรไทย)
+    </p>
+
+    <!-- QR Code กดเพื่อขยาย -->
+    <button
+        type="button"
+        onclick="openQRModal()"
+        class="block mx-auto cursor-pointer focus:outline-none"
+        aria-label="เปิด QR Code ขนาดใหญ่"
+    >
+        <div class="w-64 h-64 mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center p-2 hover:border-brand-gold hover:shadow-lg transition duration-300">
+
+            <img
+                src="./promptpay-qr.png"
+                alt="QR Payment"
+                class="w-56 h-56 object-contain mx-auto rounded"
+            >
+
+        </div>
+
+        <p class="text-xs text-gray-500 mt-3">
+            <i class="fa-solid fa-expand mr-1"></i>
+            กดที่ QR Code เพื่อขยาย
+        </p>
+    </button>
 </div>
-                        </div>
 
                         <!-- Payment inputs -->
                         <div class="space-y-4">
@@ -455,7 +476,52 @@
             </form>
         </div>
     </section>
+<!-- QR Code Fullscreen Modal -->
+<div
+    id="qrModal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4"
+    onclick="closeQRModal()"
+>
+    <div
+        class="relative max-w-lg w-full bg-white rounded-3xl p-5 sm:p-8 shadow-2xl"
+        onclick="event.stopPropagation()"
+    >
 
+        <!-- ปุ่มปิด -->
+        <button
+            type="button"
+            onclick="closeQRModal()"
+            class="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-brand-gold text-brand-dark font-bold text-xl shadow-lg hover:bg-brand-lightGold transition z-10"
+            aria-label="ปิด"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h3 class="text-center text-brand-dark font-bold text-xl mb-2">
+            QR Code สำหรับชำระเงิน
+        </h3>
+
+        <p class="text-center text-gray-500 text-sm mb-5">
+            บจก. เกรียงไกร มาหามิตร (กสิกรไทย)
+        </p>
+
+        <!-- QR ใหญ่ -->
+        <div class="bg-white rounded-2xl flex items-center justify-center">
+            <img
+                src="./promptpay-qr.png"
+                alt="QR Payment"
+                class="w-full max-w-[420px] h-auto object-contain rounded-xl"
+            >
+        </div>
+
+        <p class="text-center text-gray-500 text-sm mt-5">
+            สามารถบันทึกรูป QR Code นี้ไว้เพื่อสแกนชำระเงินได้
+        </p>
+
+    </div>
+</div>
+
+    
     <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md hidden p-4">
         <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-brand-gold text-center relative gold-glow animate-scaleUp">
             <div class="w-20 h-20 bg-brand-gold/20 border-2 border-brand-gold text-brand-gold rounded-full flex items-center justify-center text-4xl mx-auto mb-6 shadow-lg">
@@ -514,20 +580,46 @@
         }
 
         function updatePrice() {
-            const category = document.getElementById('raceCategory').value;
-            const price = RACE_PRICES[category] || 0;
+    const category = document.getElementById('raceCategory').value;
+    const price = RACE_PRICES[category] || 0;
 
-            if (price > 0) {
-                document.getElementById('displayPriceAmount').innerText =
-                    `ยอดที่ต้องชำระ: ${price.toLocaleString()} บาท`;
-                document.getElementById('paymentAmount').value = price;
-            } else {
-                document.getElementById('displayPriceAmount').innerText =
-                    'ยอดที่ต้องชำระ: กรุณาเลือกระยะวิ่ง';
-                document.getElementById('paymentAmount').value = '';
-            }
-        }
+    if (price > 0) {
+        document.getElementById('paymentAmount').value = price;
+    } else {
+        document.getElementById('paymentAmount').value = '';
+    }
+}
+// ============================================================
+// QR CODE MODAL
+// ============================================================
 
+function openQRModal() {
+    const modal = document.getElementById('qrModal');
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    // ป้องกันหน้าเว็บด้านหลังเลื่อน
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQRModal() {
+    const modal = document.getElementById('qrModal');
+
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+
+    // เปิดการเลื่อนหน้าเว็บกลับมา
+    document.body.style.overflow = '';
+}
+
+// กด ESC เพื่อปิด QR
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeQRModal();
+    }
+});
+        
         function previewSlip(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -656,14 +748,12 @@
         }
 
         function closeModal() {
-            document.getElementById('successModal').classList.add('hidden');
-            document.getElementById('registrationForm').reset();
-            document.getElementById('slipPreviewContainer').classList.add('hidden');
-            document.getElementById('paymentDate').valueAsDate = new Date();
-            document.getElementById('displayPriceAmount').innerText =
-                'ยอดที่ต้องชำระ: กรุณาเลือกระยะวิ่ง';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    document.getElementById('successModal').classList.add('hidden');
+    document.getElementById('registrationForm').reset();
+    document.getElementById('slipPreviewContainer').classList.add('hidden');
+    document.getElementById('paymentDate').valueAsDate = new Date();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
