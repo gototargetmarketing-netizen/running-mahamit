@@ -791,51 +791,14 @@ document.addEventListener('keydown', function(event) {
     document.getElementById('paymentDate').valueAsDate = new Date();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-
-/* เปิด Messenger App ก่อน ถ้าเปิดไม่ได้ให้ใช้ Messenger Web */
-function openMessenger(event) {
-    event.preventDefault();
-
-    const messengerAppUrl = 'fb-messenger://user-thread/101102435660822';
-    const messengerWebUrl = 'https://m.me/101102435660822';
-
-    let appOpened = false;
-
-    // ถ้าออกจาก Safari ไปเปิดแอปได้
-    const handleVisibilityChange = () => {
-        if (document.hidden) {
-            appOpened = true;
-        }
-    };
-
-    document.addEventListener(
-        'visibilitychange',
-        handleVisibilityChange,
-        { once: true }
-    );
-
-    // พยายามเปิด Messenger App
-    window.location.href = messengerAppUrl;
-
-    // ถ้าเปิดแอปไม่ได้ ให้กลับไป Messenger Web
-    setTimeout(function() {
-        if (!appOpened && !document.hidden) {
-            window.location.href = messengerWebUrl;
-        }
-    }, 1500);
-}
-
-</script>
     </script>
-   <!-- Floating Facebook Messenger Button -->
+    <!-- Floating Facebook Messenger Button -->
 <a
     href="https://m.me/101102435660822"
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label="สอบถามผ่าน Facebook Messenger"
     class="messenger-float"
-    onclick="openMessenger(event)"
 >
     <i class="fa-brands fa-facebook-messenger"></i>
 </a>
