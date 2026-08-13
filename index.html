@@ -384,7 +384,8 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
                         <!-- QR Code Display -->
-                        <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
+                     <div class="text-center bg-white p-6 rounded-2xl shadow-lg w-full">
+
     <h4 class="text-brand-dark font-bold text-base mb-2">
         สแกน QR Code ชำระเงิน
     </h4>
@@ -393,19 +394,21 @@
         ชื่อบัญชี: บจก. เกรียงไกร มาหามิตร (กสิกรไทย)
     </p>
 
-    <!-- QR Code กดเพื่อขยาย -->
+    <!-- QR Code หน้าแรก -->
     <button
         type="button"
         onclick="openQRModal()"
-        class="block mx-auto cursor-pointer focus:outline-none"
+        class="w-full flex flex-col items-center justify-center cursor-pointer focus:outline-none"
         aria-label="เปิด QR Code ขนาดใหญ่"
     >
-        <div class="w-48 h-48 mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center p-2 hover:border-brand-gold hover:shadow-lg transition duration-300">
+
+        <!-- กรอบ QR -->
+        <div class="w-[220px] h-[220px] mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center p-3 hover:border-brand-gold hover:shadow-lg transition">
 
             <img
                 src="./promptpay-qr.png"
                 alt="QR Payment"
-                class="w-40 h-40 object-contain mx-auto rounded"
+                class="w-full h-full object-contain rounded"
             >
 
         </div>
@@ -414,7 +417,9 @@
             <i class="fa-solid fa-expand mr-1"></i>
             กดที่ QR Code เพื่อขยาย
         </p>
+
     </button>
+
 </div>
 
                         <!-- Payment inputs -->
