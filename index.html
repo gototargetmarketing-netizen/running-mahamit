@@ -72,6 +72,41 @@
             background: #e6c547;
         }
     </style>
+
+    /* Floating Messenger Button */
+.messenger-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #0084ff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.messenger-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 640px) {
+    .messenger-float {
+        right: 16px;
+        bottom: 85px;
+        width: 52px;
+        height: 52px;
+        font-size: 25px;
+    }
+}
 </head>
 <body class="min-h-screen selection:bg-brand-gold selection:text-brand-dark">
 
@@ -757,5 +792,17 @@ document.addEventListener('keydown', function(event) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
     </script>
+
+<!-- Floating Facebook Messenger Button -->
+<a
+    href="https://m.me/101102435660822"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="สอบถามผ่าน Facebook Messenger"
+    class="messenger-float"
+>
+    <i class="fa-brands fa-facebook-messenger"></i>
+</a>
+    
 </body>
 </html>
