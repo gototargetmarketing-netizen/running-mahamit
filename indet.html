@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHAMIT MAERIM CROSS COUNTRY - ลงทะเบียนสมัครวิ่ง</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1b261c',
+                            olive: '#2d3b2e',
+                            gold: '#e6c547',
+                            lightGold: '#f4e482',
+                            cream: '#f9f6ef',
+                            accent: '#4a6741'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            background-color: #121913;
+            color: #f9f6ef;
+        }
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(27,38,28,0.7) 0%, rgba(18,25,19,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(30, 42, 32, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(230, 197, 71, 0.2);
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(230, 197, 71, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121913;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b4e3c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e6c547;
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-brand-gold selection:text-brand-dark">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold flex items-center justify-center text-brand-gold font-bold text-lg">
+                    MM
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-widest text-brand-lightGold/80">เกรียงไกร มาหามิตร</span>
+                    <span class="text-lg font-bold text-white tracking-wide">MAHAMIT MAERIM</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#hero" class="text-brand-cream/80 hover:text-brand-gold transition">หน้าแรก</a>
+                <a href="#details" class="text-brand-cream/80 hover:text-brand-gold transition">ระยะวิ่ง & ค่าสมัคร</a>
+                <a href="#register" class="text-brand-cream/80 hover:text-brand-gold transition">สมัครแข่งขัน</a>
+            </div>
+            <div>
+                <a href="#register" class="bg-brand-gold text-brand-dark px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-brand-lightGold transition shadow-lg shadow-brand-gold/20 flex items-center gap-2">
+                    <i class="fa-solid fa-person-running"></i> สมัครเลย
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-bg min-h-screen pt-28 pb-20 flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#121913] via-transparent to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-lightGold text-xs uppercase tracking-widest mb-6 animate-pulse">
+                <i class="fa-solid fa-calendar-days"></i> เปิดรับสมัครแล้ววันนี้ | 28-29 พฤศจิกายน 2569
+            </div>
+            
+            <h2 class="text-xl sm:text-2xl font-light text-brand-cream/90 tracking-widest mb-2">
+                เตรียมพบกับ “งานวิ่ง” ครั้งใหม่ ที่จะพาทุกคนไปรู้จัก
+            </h2>
+            <h1 class="text-4xl sm:text-7xl font-extrabold text-brand-gold tracking-wider mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+                MAHAMIT MAERIM<br>
+                <span class="text-white text-3xl sm:text-6xl font-bold tracking-normal">CROSS COUNTRY</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-brand-cream/80 text-base sm:text-lg mb-10 font-light leading-relaxed">
+                สัมผัสความงามแห่งขุนเขาและท้องนาขั้นบันได ณ แม่ริมฝั่งขวา ท่ามกลางบรรยากาศธรรมชาติบริสุทธิ์ ชาร์จพลังชีวิตไปกับเส้นทางวิ่งที่คุณจะไม่มีวันลืม
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#register" class="w-full sm:w-auto bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:opacity-95 transition shadow-xl shadow-brand-gold/30 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-ticket"></i> กรอกใบสมัครวิ่งออนไลน์
+                </a>
+                <a href="#details" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-medium text-lg transition flex items-center justify-center gap-3 backdrop-blur-sm">
+                    <i class="fa-solid fa-circle-info"></i> รายละเอียดระยะวิ่ง
+                </a>
+            </div>
+
+            <!-- Quick stats bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div class="glass-card p-4 rounded-xl text-center border border-brand-gold/20">
+                    <div class="text-2xl font-bold text-brand-gold">28-29 พ.ย.</div>
+                    <div class="text-xs text-brand-cream/70 mt-1">วันจัดงานแข่งขัน</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-brand-gold/20">
+                    <div class="text-2xl font-bold text-brand-gold">3 ระยะ</div>
+                    <div class="text-xs text-brand-cream/70 mt-1">Fun Run / Mini / Half</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-brand-gold/20">
+                    <div class="text-2xl font-bold text-brand-gold">แม่ริม ฝั่งขวา</div>
+                    <div class="text-xs text-brand-cream/70 mt-1">เชียงใหม่</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-brand-gold/20">
+                    <div class="text-2xl font-bold text-brand-gold">Google Sheets</div>
+                    <div class="text-xs text-brand-cream/70 mt-1">เชื่อมต่อข้อมูลเรียลไทม์</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details" class="py-20 bg-brand-olive/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-gold text-sm font-semibold tracking-widest uppercase">Categories & Pricing</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">เลือกระยะทางที่ท้าทายคุณ</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Fun Run -->
+                <div class="glass-card rounded-2xl p-8 border border-brand-gold/30 hover:border-brand-gold transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="p-3 rounded-xl bg-brand-gold/10 text-brand-gold text-2xl">
+                                <i class="fa-solid fa-person-running"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-gold text-brand-dark font-bold text-xs">ยอดนิยม</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Fun Run 5 KM</h3>
+                        <p class="text-brand-cream/70 text-sm mb-6">เหมาะสำหรับผู้เริ่มต้นวิ่ง หรือต้องการชมวิวทิวทัศน์ธรรมชาติแบบชิล ๆ</p>
+                        <ul class="space-y-3 text-sm text-brand-cream/90 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เสื้อที่ระลึกดีไซน์พิเศษ</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เหรียญที่ระลึก (เมื่อเข้าเส้นชัย)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> หมายเลขวิ่ง (Bib)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-brand-gold mb-4">550 <span class="text-sm font-normal text-brand-cream/70">บาท</span></div>
+                        <a href="#register" onclick="selectCategory('Fun Run 5 KM')" class="block w-full py-3 text-center rounded-xl bg-white/10 hover:bg-brand-gold hover:text-brand-dark text-white font-semibold transition">
+                            เลือกระยะนี้
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mini Marathon -->
+                <div class="glass-card rounded-2xl p-8 border border-brand-gold/60 bg-brand-olive/80 shadow-2xl relative transform md:-translate-y-4">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-gold text-brand-dark px-4 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider">
+                        แนะนำ
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="p-3 rounded-xl bg-brand-gold/20 text-brand-gold text-2xl">
+                                <i class="fa-solid fa-person-hiking"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-lightGold/20 text-brand-lightGold font-bold text-xs">10 KM</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Mini Marathon 10 KM</h3>
+                        <p class="text-brand-cream/70 text-sm mb-6">ท้าทายขีดจำกัดตัวเองผ่านเส้นทางลาดชันและทุ่งนาขั้นบันได</p>
+                        <ul class="space-y-3 text-sm text-brand-cream/90 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เสื้อที่ระลึกดีไซน์พิเศษ</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เหรียญที่ระลึก (เมื่อเข้าเส้นชัย)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> หมายเลขวิ่ง (Bib) พร้อมระบบจับเวลา</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> ถ้วยรางวัลตามรุ่นอายุ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-brand-gold mb-4">650 <span class="text-sm font-normal text-brand-cream/70">บาท</span></div>
+                        <a href="#register" onclick="selectCategory('Mini Marathon 10 KM')" class="block w-full py-3 text-center rounded-xl bg-brand-gold text-brand-dark hover:bg-brand-lightGold font-bold transition shadow-lg shadow-brand-gold/20">
+                            เลือกระยะนี้
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Half Marathon -->
+                <div class="glass-card rounded-2xl p-8 border border-brand-gold/30 hover:border-brand-gold transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="p-3 rounded-xl bg-brand-gold/10 text-brand-gold text-2xl">
+                                <i class="fa-solid fa-medal"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-bold text-xs">21 KM</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Half Marathon 21 KM</h3>
+                        <p class="text-brand-cream/70 text-sm mb-6">สำหรับนักวิ่งตัวยง สัมผัสธรรมชาติแบบเต็มอิ่มตลอดเส้นทางขุนเขาแม่ริม</p>
+                        <ul class="space-y-3 text-sm text-brand-cream/90 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เสื้อที่ระลึกดีไซน์พิเศษ</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> เหรียญที่ระลึก + เสื้อ Finisher 21K</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> หมายเลขวิ่ง (Bib) ชิปจับเวลา</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> อาหารและเครื่องดื่มหลังเข้าเส้นชัย</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-brand-gold mb-4">850 <span class="text-sm font-normal text-brand-cream/70">บาท</span></div>
+                        <a href="#register" onclick="selectCategory('Half Marathon 21 KM')" class="block w-full py-3 text-center rounded-xl bg-white/10 hover:bg-brand-gold hover:text-brand-dark text-white font-semibold transition">
+                            เลือกระยะนี้
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-gold text-sm font-semibold tracking-widest uppercase">Online Registration Form</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mt-2 mb-4">แบบฟอร์มลงทะเบียนสมัครวิ่ง</h2>
+                <p class="text-brand-cream/75 max-w-xl mx-auto text-sm">กรุณากรอกข้อมูลส่วนตัว ระยะทาง ไซส์เสื้อ และแนบหลักฐานการชำระเงินให้ครบถ้วน ข้อมูลจะถูกบันทึกเข้า Google Sheets ทันที</p>
+                <div class="w-32 h-1 bg-brand-gold mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <form id="registrationForm" onsubmit="handleFormSubmit(event)" class="glass-card p-6 sm:p-10 rounded-3xl border border-brand-gold/30 shadow-2xl space-y-10">
+                
+                <!-- Section 1: Participant Info -->
+                <div>
+                    <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">1</span>
+                        <h3 class="text-xl font-bold text-white">ข้อมูลผู้สมัคร (Participant Information)</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Full Name -->
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ชื่อ-นามสกุล <span class="text-brand-gold">*</span></label>
+                            <input type="text" id="fullName" required placeholder="เช่น นายเกรียงไกร มาหามิตร" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+
+                        <!-- Gender -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">เพศ <span class="text-brand-gold">*</span></label>
+                            <select id="gender" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                                <option value="" disabled selected>-- กรุณาเลือกเพศ --</option>
+                                <option value="ชาย">ชาย</option>
+                                <option value="หญิง">หญิง</option>
+                            </select>
+                        </div>
+
+                        <!-- Age -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">อายุ (ปี) <span class="text-brand-gold">*</span></label>
+                            <input type="number" id="age" min="5" max="100" required placeholder="เช่น 28" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+
+                        <!-- Phone -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">เบอร์โทรศัพท์ <span class="text-brand-gold">*</span></label>
+                            <input type="tel" id="phone" required placeholder="เช่น 0891234567" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">อีเมล <span class="text-brand-gold">*</span></label>
+                            <input type="email" id="email" required placeholder="example@email.com" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+
+                        <!-- Address -->
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ที่อยู่สำหรับจัดส่งอุปกรณ์ (เสื้อ / Bib) <span class="text-brand-gold">*</span></label>
+                            <textarea id="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Race & Shirt Size -->
+                <div>
+                    <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">2</span>
+                        <h3 class="text-xl font-bold text-white">เลือกระยะทางและไซส์เสื้อ</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Category -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ระยะที่ต้องการสมัคร <span class="text-brand-gold">*</span></label>
+                            <select id="raceCategory" required onchange="updatePrice()" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                                <option value="" disabled selected>-- เลือกระยะวิ่ง --</option>
+                                <option value="Fun Run 5 KM">🏃 Fun Run 5 KM (550 บาท)</option>
+                                <option value="Mini Marathon 10 KM">🏃‍♂️ Mini Marathon 10 KM (650 บาท)</option>
+                                <option value="Half Marathon 21 KM">🏃‍♀️ Half Marathon 21 KM (850 บาท)</option>
+                            </select>
+                        </div>
+
+                        <!-- Shirt Size -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ขนาดไซส์เสื้อ <span class="text-brand-gold">*</span></label>
+                            <select id="shirtSize" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                                <option value="" disabled selected>-- เลือกไซส์เสื้อ --</option>
+                                <option value="XS">XS (รอบอก 34 นิ้ว)</option>
+                                <option value="S">S (รอบอก 36 นิ้ว)</option>
+                                <option value="M">M (รอบอก 38 นิ้ว)</option>
+                                <option value="L">L (รอบอก 40 นิ้ว)</option>
+                                <option value="XL">XL (รอบอก 42 นิ้ว)</option>
+                                <option value="2XL">2XL (รอบอก 44 นิ้ว)</option>
+                                <option value="3XL">3XL (รอบอก 46 นิ้ว)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Emergency Contact -->
+                <div>
+                    <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">3</span>
+                        <h3 class="text-xl font-bold text-white">ผู้ติดต่อกรณีฉุกเฉิน (Emergency Contact)</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Emergency Name -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ชื่อผู้ติดต่อฉุกเฉิน <span class="text-brand-gold">*</span></label>
+                            <input type="text" id="emergencyName" required placeholder="ชื่อ-นามสกุล ผู้ติดต่อ" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+
+                        <!-- Relationship -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">ความสัมพันธ์ <span class="text-brand-gold">*</span></label>
+                            <select id="emergencyRelation" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                                <option value="" disabled selected>-- เลือกความสัมพันธ์ --</option>
+                                <option value="มารดา">มารดา</option>
+                                <option value="บิดา">บิดา</option>
+                                <option value="ภรรยา">ภรรยา</option>
+                                <option value="สามี">สามี</option>
+                                <option value="เพื่อน">เพื่อน</option>
+                                <option value="พี่น้อง">พี่น้อง</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
+                            </select>
+                        </div>
+
+                        <!-- Emergency Phone -->
+                        <div>
+                            <label class="block text-sm font-medium text-brand-cream mb-2">เบอร์โทรผู้ติดต่อฉุกเฉิน <span class="text-brand-gold">*</span></label>
+                            <input type="tel" id="emergencyPhone" required placeholder="เบอร์โทรฉุกเฉิน" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Payment & Slip Upload -->
+                <div>
+                    <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">4</span>
+                        <h3 class="text-xl font-bold text-white">ชำระเงินและหลักฐานการโอน</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
+                        <!-- QR Code Display -->
+                        <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
+                            <h4 class="text-brand-dark font-bold text-base mb-2">สแกน QR Code ชำระเงิน</h4>
+                            <p class="text-xs text-gray-500 mb-4">ชื่อบัญชี: บจก. เกรียงไกร มาหามิตร (กสิกรไทย)</p>
+                            <!-- Official promptpay mock QR code via placeholder or svg -->
+                            <div class="w-48 h-48 mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-2">
+                                <img src="./promptpay-qr.png" alt="QR Payment" class="w-40 h-40 object-contain mx-auto rounded">
+                            </div>
+                            <div id="displayPriceAmount" class="mt-4 text-brand-dark font-bold text-lg bg-yellow-100 py-1.5 px-4 rounded-full inline-block">
+                                ยอดที่ต้องชำระ: กรุณาเลือกระยะวิ่ง
+                            </div>
+                        </div>
+
+                        <!-- Payment inputs -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">วันที่ชำระเงิน <span class="text-brand-gold">*</span></label>
+                                <input type="date" id="paymentDate" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">ยอดที่โอนเงิน (บาท) <span class="text-brand-gold">*</span></label>
+                                <input type="number" id="paymentAmount" required placeholder="เช่น 650.00" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">แนบหลักฐานการชำระเงิน (สลิป) <span class="text-brand-gold">*</span></label>
+                                <input type="file" id="slipFile" accept=".jpg, .jpeg, .png, .pdf" required onchange="previewSlip(event)" class="w-full text-sm text-brand-cream file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-brand-gold file:text-brand-dark hover:file:bg-brand-lightGold file:cursor-pointer transition">
+                                <span class="text-xs text-brand-cream/60 mt-1 block">จำกัดเฉพาะไฟล์ JPG / PNG / PDF ขนาดไม่เกิน 5MB</span>
+                                <div id="slipPreviewContainer" class="mt-2 hidden">
+                                    <span class="text-xs text-brand-lightGold"><i class="fa-solid fa-file-circle-check mr-1"></i> อัปโหลดไฟล์แล้ว: <span id="fileNameDisplay" class="underline"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Confirmation & Checkboxes -->
+                <div class="space-y-4 pt-4 border-t border-brand-gold/20">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="check1" required class="mt-1 w-5 h-5 accent-brand-gold rounded cursor-pointer">
+                        <label for="check1" class="text-sm text-brand-cream/90 cursor-pointer">
+                            ข้าพเจ้าตรวจสอบข้อมูลการสมัครเรียบร้อยแล้ว และข้อมูลที่กรอกเป็นความจริงทุกประการ
+                        </label>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="check2" required class="mt-1 w-5 h-5 accent-brand-gold rounded cursor-pointer">
+                        <label for="check2" class="text-sm text-brand-cream/90 cursor-pointer">
+                            ข้าพเจ้ายอมรับเงื่อนไขการสมัครและกติกาของงานวิ่ง MAHAMIT MAERIM CROSS COUNTRY ทุกประการ
+                        </label>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="check3" required class="mt-1 w-5 h-5 accent-brand-gold rounded cursor-pointer">
+                        <label for="check3" class="text-sm text-brand-cream/90 cursor-pointer">
+                            ข้าพเจ้ายินยอมให้ผู้จัดงานเก็บและใช้ข้อมูลส่วนบุคคลเพื่อวัตถุประสงค์ในการจัดงานและติดต่อเกี่ยวกับงานวิ่ง
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-6 text-center">
+                    <button type="submit" id="submitBtn" class="w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark font-bold text-xl rounded-2xl hover:opacity-95 transition shadow-2xl shadow-brand-gold/40 flex items-center justify-center gap-3 mx-auto">
+                        <i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครวิ่ง
+                    </button>
+                    <p class="text-xs text-brand-cream/60 mt-3">ระบบจะบันทึกข้อมูลและส่งไปยัง Google Sheets อัตโนมัติทันที</p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md hidden p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-brand-gold text-center relative gold-glow animate-scaleUp">
+            <div class="w-20 h-20 bg-brand-gold/20 border-2 border-brand-gold text-brand-gold rounded-full flex items-center justify-center text-4xl mx-auto mb-6 shadow-lg">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            
+            <span class="text-xs uppercase tracking-widest text-brand-lightGold font-semibold">Registration Successful</span>
+            <h3 class="text-3xl font-extrabold text-white mt-1 mb-3">ลงทะเบียนสำเร็จแล้ว!</h3>
+            <p class="text-brand-cream/80 text-sm mb-6 leading-relaxed">
+                ขอบคุณที่ร่วมเป็นส่วนหนึ่งใน <br><strong class="text-brand-gold">MAHAMIT MAERIM CROSS COUNTRY 2569</strong><br>
+                ข้อมูลของท่านได้ถูกบันทึกเรียบร้อยแล้ว ทีมงานจะตรวจสอบหลักฐานการชำระเงินและติดต่อกลับทางอีเมลและเบอร์โทรศัพท์ที่ท่านให้ไว้
+            </p>
+
+            <div class="bg-brand-dark/70 rounded-2xl p-4 border border-brand-gold/20 text-left mb-6 text-xs space-y-2">
+                <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล:</span> <span id="resName" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง:</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ:</span> <span id="resShirt" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ:</span> <span id="resAmount" class="text-white font-medium">--</span></div>
+            </div>
+
+            <div class="flex gap-4 justify-center">
+                <button onclick="closeModal()" class="px-8 py-3 bg-brand-gold text-brand-dark font-bold rounded-xl hover:bg-brand-lightGold transition shadow-lg">
+                    <i class="fa-solid fa-house mr-2"></i>กลับสู่หน้าหลัก
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brand-dark py-12 border-t border-brand-gold/10 text-center text-xs text-brand-cream/60">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2 text-sm text-brand-cream font-medium">สอบถามข้อมูลเพิ่มเติมเกี่ยวกับงานวิ่ง</p>
+            <p class="text-brand-gold mb-6 font-semibold">Facebook: Kriangkrai Mahamit (KK Market)</p>
+            <p>© 2569 MAHAMIT MAERIM CROSS COUNTRY. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // ============================================================
+        // 1) ใส่ URL Google Apps Script Web App ของคุณตรงนี้
+        // ============================================================
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwjurzmo7rB6RtKHnIyooG8dg7C5rLKcawReMAvnvIJm5XSpKj2_lnPy-YFlllEdWw/exec';
+
+        // ราคาแต่ละระยะ
+        const RACE_PRICES = {
+            'Fun Run 5 KM': 550,
+            'Mini Marathon 10 KM': 650,
+            'Half Marathon 21 KM': 850
+        };
+
+        // ตั้งวันที่ชำระเงินเป็นวันนี้
+        document.getElementById('paymentDate').valueAsDate = new Date();
+
+        function selectCategory(categoryName) {
+            const select = document.getElementById('raceCategory');
+            select.value = categoryName;
+            updatePrice();
+        }
+
+        function updatePrice() {
+            const category = document.getElementById('raceCategory').value;
+            const price = RACE_PRICES[category] || 0;
+
+            if (price > 0) {
+                document.getElementById('displayPriceAmount').innerText =
+                    `ยอดที่ต้องชำระ: ${price.toLocaleString()} บาท`;
+                document.getElementById('paymentAmount').value = price;
+            } else {
+                document.getElementById('displayPriceAmount').innerText =
+                    'ยอดที่ต้องชำระ: กรุณาเลือกระยะวิ่ง';
+                document.getElementById('paymentAmount').value = '';
+            }
+        }
+
+        function previewSlip(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const allowed = ['image/jpeg', 'image/png', 'application/pdf'];
+            const maxSize = 5 * 1024 * 1024;
+
+            if (!allowed.includes(file.type)) {
+                alert('กรุณาแนบไฟล์ JPG, PNG หรือ PDF เท่านั้น');
+                event.target.value = '';
+                document.getElementById('slipPreviewContainer').classList.add('hidden');
+                return;
+            }
+
+            if (file.size > maxSize) {
+                alert('ไฟล์สลิปต้องมีขนาดไม่เกิน 5 MB');
+                event.target.value = '';
+                document.getElementById('slipPreviewContainer').classList.add('hidden');
+                return;
+            }
+
+            document.getElementById('fileNameDisplay').innerText = file.name;
+            document.getElementById('slipPreviewContainer').classList.remove('hidden');
+        }
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+
+                reader.onload = () => {
+                    const result = reader.result;
+                    const base64 = result.split(',')[1];
+                    resolve(base64);
+                };
+
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR_')) {
+                alert('เว็บไซต์ยังไม่ได้ตั้งค่า Google Apps Script Web App URL');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            const slipInput = document.getElementById('slipFile');
+            const slipFile = slipInput.files[0];
+
+            if (!slipFile) {
+                alert('กรุณาแนบหลักฐานการชำระเงิน');
+                return;
+            }
+
+            if (slipFile.size > 5 * 1024 * 1024) {
+                alert('ไฟล์สลิปต้องมีขนาดไม่เกิน 5 MB');
+                return;
+            }
+
+            const raceCategory = document.getElementById('raceCategory').value;
+            const expectedAmount = RACE_PRICES[raceCategory];
+            const paymentAmount = Number(document.getElementById('paymentAmount').value);
+
+            if (!expectedAmount || paymentAmount !== expectedAmount) {
+                alert(`ยอดชำระไม่ถูกต้องสำหรับ ${raceCategory} กรุณาตรวจสอบอีกครั้ง`);
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin mr-2"></i> กำลังอัปโหลดและบันทึกข้อมูล...';
+
+            try {
+                const slipBase64 = await fileToBase64(slipFile);
+
+                const formData = {
+                    fullName: document.getElementById('fullName').value.trim(),
+                    gender: document.getElementById('gender').value,
+                    age: document.getElementById('age').value,
+                    phone: document.getElementById('phone').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    address: document.getElementById('address').value.trim(),
+                    raceCategory: raceCategory,
+                    shirtSize: document.getElementById('shirtSize').value,
+                    emergencyName: document.getElementById('emergencyName').value.trim(),
+                    emergencyRelation: document.getElementById('emergencyRelation').value,
+                    emergencyPhone: document.getElementById('emergencyPhone').value.trim(),
+                    paymentDate: document.getElementById('paymentDate').value,
+                    paymentAmount: paymentAmount,
+                    slipFileName: slipFile.name,
+                    slipMimeType: slipFile.type,
+                    slipBase64: slipBase64
+                };
+
+                // text/plain + no-cors ช่วยให้ส่ง POST จากหน้าเว็บไป Apps Script
+                // โดยไม่ติด preflight CORS
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // แสดงสรุปหลังส่งคำขอสำเร็จระดับ network
+                document.getElementById('resName').innerText = formData.fullName;
+                document.getElementById('resCategory').innerText = formData.raceCategory;
+                document.getElementById('resShirt').innerText = formData.shirtSize;
+                document.getElementById('resAmount').innerText =
+                    formData.paymentAmount.toLocaleString() + ' บาท';
+
+                document.getElementById('successModal').classList.remove('hidden');
+
+            } catch (error) {
+                console.error(error);
+                alert('ส่งข้อมูลไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่อีกครั้ง');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML =
+                    '<i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครวิ่ง';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('registrationForm').reset();
+            document.getElementById('slipPreviewContainer').classList.add('hidden');
+            document.getElementById('paymentDate').valueAsDate = new Date();
+            document.getElementById('displayPriceAmount').innerText =
+                'ยอดที่ต้องชำระ: กรุณาเลือกระยะวิ่ง';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
