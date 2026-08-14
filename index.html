@@ -110,7 +110,21 @@
 
 <style>
 /* จัดฟอร์มให้สวยทั้ง Desktop และ Mobile */
+#registrationForm {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#registrationForm *,
+#registrationForm *::before,
+#registrationForm *::after {
+    box-sizing: border-box;
+}
+
 #registrationForm .grid {
+    width: 100%;
     align-items: start;
 }
 
@@ -118,7 +132,10 @@
 #registrationForm select,
 #registrationForm textarea {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     box-sizing: border-box;
+    display: block;
 }
 
 #registrationForm textarea {
@@ -127,14 +144,79 @@
     resize: vertical;
 }
 
+#registrationForm input,
+#registrationForm select,
+#registrationForm textarea {
+    font-size: 16px;
+}
+
+#registrationForm input[type="file"] {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
 /* มือถือ */
 @media (max-width: 767px) {
+
+    #registrationForm {
+        padding: 20px;
+    }
+
     #registrationForm .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
     }
 
     #registrationForm .md\:col-span-2 {
-        grid-column: span 1;
+        grid-column: auto;
+    }
+
+    #registrationForm .grid.grid-cols-1.md\:grid-cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #registrationForm img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #registrationForm .w-\[220px\] {
+        width: min(220px, 100%);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    #registrationForm h3 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    #registrationForm label {
+        line-height: 1.5;
+    }
+
+    #submitBtn {
+        width: 100%;
+    }
+}
+
+/* มือถือจอเล็กมาก */
+@media (max-width: 380px) {
+
+    #registrationForm {
+        padding: 16px;
+    }
+
+    #registrationForm input:not([type="checkbox"]),
+    #registrationForm select,
+    #registrationForm textarea {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #registrationForm h3 {
+        font-size: 17px;
     }
 }
 /* ข้อความแจ้งเตือนใต้ช่องกรอก */
@@ -485,7 +567,7 @@
                         <h3 class="text-xl font-bold text-white">ชำระเงินและหลักฐานการโอน</h3>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
                         <!-- QR Code Display -->
                      <div class="text-center bg-white p-6 rounded-2xl shadow-lg w-full">
 
@@ -506,7 +588,7 @@
     >
 
         <!-- กรอบ QR -->
-        <div class="w-[220px] h-[220px] mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center p-3 hover:border-brand-gold hover:shadow-lg transition">
+        <div class="w-[220px] max-w-full aspect-square mx-auto bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center p-3 hover:border-brand-gold hover:shadow-lg transition">
 
             <img
                 src="./promptpay-qr.png"
