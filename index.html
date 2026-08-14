@@ -660,14 +660,14 @@
         <p class="text-center text-gray-500 text-sm mt-5">
             สามารถบันทึกรูป QR Code นี้ไว้เพื่อสแกนชำระเงินได้
         </p>
-<a
-    href="./promptpay-qr.png"
-    download="MAHAMIT-PROMPTPAY-QR.png"
+<button
+    type="button"
+    onclick="saveQRImage()"
     class="mt-4 w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-brand-gold text-brand-dark font-bold hover:bg-brand-lightGold transition shadow-lg"
 >
     <i class="fa-solid fa-download"></i>
-    โหลด QR Code
-</a>
+    บันทึก QR Code
+</button>
     </div>
 </div>
 
@@ -1208,7 +1208,55 @@ document.addEventListener('change', function(event) {
                     '<i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครวิ่ง';
             }
         }
+async function saveQRImage() {
+    try {
+        const response = await fetch('./promptpay-qr.png');
+        const blob = await response.blob();
 
+        const file = new File(
+            [blob],
+            'MAHAMIT-PROMPTPAY-QR.png',
+            { type: 'image/png' }
+        );
+
+        // 📱 มือถือที่รองรับการแชร์ไฟล์
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+            await navigator.share({
+                files: [file],
+                title: 'QR Code สำหรับชำระเงิน',
+                text: 'QR Code สำหรับชำระเงิน MAHAMIT MAERIM'
+            });
+
+            return;
+        }
+
+        // 💻 ถ้าไม่รองรับ ให้ดาวน์โหลดแทน
+        const link = document.createElement('a');
+
+        link.download = 'MAHAMIT-PROMPTPAY-QR.png';
+        link.href = URL.createObjectURL(blob);
+
+        link.click();
+
+        setTimeout(() => {
+            URL.revokeObjectURL(link.href);
+        }, 1000);
+
+    } catch (error) {
+
+        if (error.name === 'AbortError') {
+            return;
+        }
+
+        console.error(error);
+        alert('ไม่สามารถบันทึก QR Code ได้ กรุณาลองใหม่อีกครั้ง');
+    }
+}
+        
       async function saveBookingImage() {
     const bookingCard = document.getElementById('bookingConfirmation');
 
