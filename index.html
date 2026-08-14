@@ -1286,7 +1286,7 @@ if (
     }
 }
         
-      async function saveBookingImage() {
+     async function saveBookingImage() {
     const bookingCard = document.getElementById('bookingConfirmation');
 
     if (!bookingCard) {
@@ -1295,13 +1295,14 @@ if (
     }
 
     try {
+        // สร้างรูปภาพจากใบยืนยันการสมัคร
         const canvas = await html2canvas(bookingCard, {
             scale: 2,
             useCORS: true,
             backgroundColor: '#1b261c'
         });
 
-        // แปลงภาพเป็น Blob
+        // แปลงเป็น PNG
         const blob = await new Promise(resolve => {
             canvas.toBlob(resolve, 'image/png');
         });
@@ -1310,28 +1311,48 @@ if (
             throw new Error('ไม่สามารถสร้างรูปภาพได้');
         }
 
+        // สร้างไฟล์เหมือน QR Code
         const file = new File(
             [blob],
             'MAHAMIT-MAERIM-BOOKING.png',
             { type: 'image/png' }
         );
 
-        // ถ้ามือถือรองรับ Share รูปภาพ
-        // ถ้าไม่รองรับ Share ให้ดาวน์โหลดแทน
-const link = document.createElement('a');
-link.download = 'MAHAMIT-MAERIM-BOOKING.png';
-link.href = URL.createObjectURL(blob);
-link.click();
+        // ตรวจสอบมือถือ
+        const isMobile =
+            /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-setTimeout(() => {
-    URL.revokeObjectURL(link.href);
-}, 1000);
+        // ใช้ระบบเดียวกับ QR Code
+        if (
+            isMobile &&
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+            await navigator.share({
+                files: [file],
+                title: 'ข้อมูลการสมัคร MAHAMIT MAERIM',
+                text: 'รูปยืนยันการสมัคร MAHAMIT MAERIM CROSS COUNTRY'
+            });
 
-        
+            return;
+        }
+
+        // ถ้าอุปกรณ์ไม่รองรับ Share ให้ดาวน์โหลด
+        const link = document.createElement('a');
+
+        link.download = 'MAHAMIT-MAERIM-BOOKING.png';
+        link.href = URL.createObjectURL(blob);
+
+        link.click();
+
+        setTimeout(() => {
+            URL.revokeObjectURL(link.href);
+        }, 1000);
 
     } catch (error) {
 
-        // ถ้าผู้ใช้กดยกเลิก Share ไม่ต้องแจ้ง Error
         if (error.name === 'AbortError') {
             return;
         }
