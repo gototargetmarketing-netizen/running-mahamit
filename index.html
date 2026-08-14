@@ -1219,6 +1219,114 @@ function createRegistrationId() {
 
     return 'MM-' + date + '-' + random;
 }
+
+// ============================================================
+// ตรวจสอบว่าเบอร์โทรศัพท์ลงทะเบียนไปแล้วหรือยัง
+// ============================================================
+
+function checkPhoneDuplicate(phone) {
+
+    return new Promise(function(resolve, reject) {
+
+        const callbackName =
+            'phoneCheck_' +
+            Date.now() +
+            '_' +
+            Math.floor(Math.random() * 100000);
+
+
+        const script =
+            document.createElement('script');
+
+
+        const timeout =
+            setTimeout(function() {
+
+                cleanup();
+
+                reject(
+                    new Error(
+                        'ตรวจสอบเบอร์โทรศัพท์ไม่สำเร็จ'
+                    )
+                );
+
+            }, 10000);
+
+
+        function cleanup() {
+
+            clearTimeout(timeout);
+
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+
+            try {
+                delete window[callbackName];
+            } catch (e) {
+                window[callbackName] = undefined;
+            }
+
+        }
+
+
+        window[callbackName] =
+            function(result) {
+
+                cleanup();
+
+                if (
+                    !result ||
+                    result.success !== true
+                ) {
+
+                    reject(
+                        new Error(
+                            result &&
+                            result.error
+                                ? result.error
+                                : 'ตรวจสอบเบอร์โทรศัพท์ไม่สำเร็จ'
+                        )
+                    );
+
+                    return;
+                }
+
+
+                resolve(
+                    result.exists === true
+                );
+
+            };
+
+
+        script.src =
+            APPS_SCRIPT_URL +
+            '?phone=' +
+            encodeURIComponent(phone) +
+            '&callback=' +
+            encodeURIComponent(callbackName);
+
+
+        script.onerror =
+            function() {
+
+                cleanup();
+
+                reject(
+                    new Error(
+                        'ไม่สามารถเชื่อมต่อระบบตรวจสอบเบอร์โทรศัพท์ได้'
+                    )
+                );
+
+            };
+
+
+        document.body.appendChild(script);
+
+    });
+
+}
         
         async function handleFormSubmit(event) {
     event.preventDefault();
@@ -1256,6 +1364,63 @@ function createRegistrationId() {
                 return;
             }
 
+// ============================================================
+// ตรวจสอบเบอร์โทรศัพท์ก่อนเริ่มอัปโหลดสลิป
+// ============================================================
+
+const phone =
+    document
+        .getElementById('phone')
+        .value
+        .trim();
+
+
+try {
+
+    const phoneExists =
+        await checkPhoneDuplicate(phone);
+
+
+    if (phoneExists) {
+
+        alert(
+            'เบอร์โทรศัพท์นี้ลงทะเบียนไปแล้ว\n\n' +
+            'กรุณาตรวจสอบเบอร์โทรศัพท์อีกครั้ง'
+        );
+
+
+        const phoneInput =
+            document.getElementById('phone');
+
+
+        phoneInput.focus();
+
+        phoneInput.select();
+
+
+        return;
+
+    }
+
+
+} catch (phoneError) {
+
+    console.error(
+        'Phone duplicate check error:',
+        phoneError
+    );
+
+
+    alert(
+        'ไม่สามารถตรวจสอบเบอร์โทรศัพท์ได้\n\n' +
+        'กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่อีกครั้ง'
+    );
+
+
+    return;
+
+}
+            
             submitBtn.disabled = true;
             submitBtn.innerHTML =
                 '<i class="fa-solid fa-spinner fa-spin mr-2"></i> กำลังอัปโหลดและบันทึกข้อมูล...';
