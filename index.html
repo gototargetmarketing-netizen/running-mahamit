@@ -489,6 +489,18 @@
                                 <label class="block text-sm font-medium text-brand-cream mb-2">วันที่ชำระเงิน <span class="text-brand-gold">*</span></label>
                                 <input type="date" id="paymentDate" required onkeydown="return false" onpaste="return false"class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                             </div>
+                            <div>
+    <label class="block text-sm font-medium text-brand-cream mb-2">
+        เวลาที่ชำระเงิน <span class="text-brand-gold">*</span>
+    </label>
+
+    <input 
+        type="time" 
+        id="paymentTime" 
+        required
+        class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition"
+    >
+</div>
 
                             <div>
                                 <label class="block text-sm font-medium text-brand-cream mb-2">ยอดที่โอนเงิน (บาท) <span class="text-brand-gold">*</span></label>
@@ -678,6 +690,22 @@
         document.getElementById('paymentAmount').value = '';
     }
 }
+
+        // ตั้งวันที่ชำระเงินเป็นวันที่ปัจจุบันอัตโนมัติ
+function setPaymentDateToday() {
+    const paymentDate = document.getElementById('paymentDate');
+
+    if (paymentDate) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+
+        paymentDate.value = `${yyyy}-${mm}-${dd}`;
+    }
+}
+
+setPaymentDateToday();
 // ============================================================
 // QR CODE MODAL
 // ============================================================
