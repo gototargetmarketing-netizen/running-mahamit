@@ -1312,29 +1312,17 @@ async function saveQRImage() {
         );
 
         // ถ้ามือถือรองรับ Share รูปภาพ
-        if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({ files: [file] })
-        ) {
-            await navigator.share({
-                files: [file],
-                title: 'ข้อมูลการสมัคร MAHAMIT MAERIM',
-                text: 'ข้อมูลการสมัครวิ่ง MAHAMIT MAERIM CROSS COUNTRY'
-            });
+        // ถ้าไม่รองรับ Share ให้ดาวน์โหลดแทน
+const link = document.createElement('a');
+link.download = 'MAHAMIT-MAERIM-BOOKING.png';
+link.href = URL.createObjectURL(blob);
+link.click();
 
-            return;
-        }
+setTimeout(() => {
+    URL.revokeObjectURL(link.href);
+}, 1000);
 
-        // ถ้าอุปกรณ์ไม่รองรับ ให้ดาวน์โหลดแบบเดิม
-        const link = document.createElement('a');
-        link.download = 'MAHAMIT-MAERIM-BOOKING.png';
-        link.href = URL.createObjectURL(blob);
-        link.click();
-
-        setTimeout(() => {
-            URL.revokeObjectURL(link.href);
-        }, 1000);
+        
 
     } catch (error) {
 
