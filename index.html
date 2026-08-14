@@ -154,6 +154,8 @@
     
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
 </head>
 <body class="min-h-screen selection:bg-brand-gold selection:text-brand-dark">
 
@@ -671,7 +673,7 @@
 
     
     <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md hidden p-4">
-        <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-brand-gold text-center relative gold-glow animate-scaleUp">
+        <div id="bookingConfirmation" class="glass-card max-w-lg w-full p-8 rounded-3xl border border-brand-gold text-center relative gold-glow animate-scaleUp">
             <div class="flex justify-center items-center mb-6">
     <img
         src="./mahamit-logo.png"
@@ -694,11 +696,29 @@
                 <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ:</span> <span id="resAmount" class="text-white font-medium">--</span></div>
             </div>
 
-            <div class="flex gap-4 justify-center">
-                <button onclick="closeModal()" class="px-8 py-3 bg-brand-gold text-brand-dark font-bold rounded-xl hover:bg-brand-lightGold transition shadow-lg">
-                    <i class="fa-solid fa-house mr-2"></i>กลับสู่หน้าหลัก
-                </button>
-            </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+
+    <!-- ปุ่มบันทึกรูปภาพ -->
+    <button
+        type="button"
+        onclick="saveBookingImage()"
+        class="px-6 py-3 bg-brand-gold text-brand-dark font-bold rounded-xl hover:bg-brand-lightGold transition shadow-lg flex items-center justify-center gap-2"
+    >
+        <i class="fa-solid fa-image"></i>
+        บันทึกรูปภาพการจอง
+    </button>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <button
+        type="button"
+        onclick="closeModal()"
+        class="px-6 py-3 bg-white/10 text-white border border-brand-gold/30 font-bold rounded-xl hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center gap-2"
+    >
+        <i class="fa-solid fa-house"></i>
+        กลับสู่หน้าหลัก
+    </button>
+
+</div>
         </div>
     </div>
 
@@ -1189,12 +1209,32 @@ document.addEventListener('change', function(event) {
             }
         }
 
-        function closeModal() {
-    document.getElementById('successModal').classList.add('hidden');
-    document.getElementById('registrationForm').reset();
-    document.getElementById('slipPreviewContainer').classList.add('hidden');
-    document.getElementById('paymentDate').valueAsDate = new Date();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      async function saveBookingImage() {
+    const bookingCard = document.getElementById('bookingConfirmation');
+
+    if (!bookingCard) {
+        alert('ไม่พบข้อมูลการจอง');
+        return;
+    }
+
+    try {
+        const canvas = await html2canvas(bookingCard, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#1b261c'
+        });
+
+        const link = document.createElement('a');
+
+        link.download = 'MAHAMIT-MAERIM-BOOKING.png';
+        link.href = canvas.toDataURL('image/png');
+
+        link.click();
+
+    } catch (error) {
+        console.error(error);
+        alert('ไม่สามารถบันทึกรูปภาพได้ กรุณาลองใหม่อีกครั้ง');
+    }
 }
     </script>
     <!-- Floating Facebook Messenger Button -->
