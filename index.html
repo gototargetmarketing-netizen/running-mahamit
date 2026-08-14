@@ -1244,19 +1244,24 @@ async function saveQRImage() {
         );
 
         // 📱 มือถือที่รองรับการแชร์ไฟล์
-        if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({ files: [file] })
-        ) {
-            await navigator.share({
-                files: [file],
-                title: 'QR Code สำหรับชำระเงิน',
-                text: 'QR Code สำหรับชำระเงิน MAHAMIT MAERIM'
-            });
+       const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-            return;
-        }
+if (
+    isMobile &&
+    navigator.share &&
+    navigator.canShare &&
+    navigator.canShare({ files: [file] })
+) {
+    await navigator.share({
+        files: [file],
+        title: 'QR Code สำหรับชำระเงิน',
+        text: 'QR Code สำหรับชำระเงิน MAHAMIT MAERIM'
+    });
+
+    return;
+}
 
         // 💻 ถ้าไม่รองรับ ให้ดาวน์โหลดแทน
         const link = document.createElement('a');
