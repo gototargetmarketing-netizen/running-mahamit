@@ -1423,21 +1423,17 @@ return;
             return;
         }
 
-       // 📱 ถ้าอุปกรณ์ไม่รองรับ Share
-// ให้เปิดภาพที่สร้างขึ้นมาโดยตรง
-const imageUrl = URL.createObjectURL(blob);
+        // ถ้าอุปกรณ์ไม่รองรับ Share ให้ดาวน์โหลด
+        const link = document.createElement('a');
 
-const newWindow = window.open(imageUrl, '_blank');
+        link.download = 'MAHAMIT-MAERIM-BOOKING.png';
+        link.href = URL.createObjectURL(blob);
 
-if (!newWindow) {
-    window.location.href = imageUrl;
-}
+        link.click();
 
-setTimeout(() => {
-    URL.revokeObjectURL(imageUrl);
-}, 3000);
-
-return;
+        setTimeout(() => {
+            URL.revokeObjectURL(link.href);
+        }, 1000);
 
     } catch (error) {
 
