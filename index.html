@@ -1345,17 +1345,36 @@ if (
     return;
 }
 
-        // 💻 ถ้าไม่รองรับ ให้ดาวน์โหลดแทน
-        const link = document.createElement('a');
+        // 💻 ถ้าไม่รองรับการ Share ให้เปิดรูปในหน้าใหม่แทน
+const imageUrl = URL.createObjectURL(blob);
 
-        link.download = 'MAHAMIT-PROMPTPAY-QR.png';
-        link.href = URL.createObjectURL(blob);
+// ตรวจว่าเป็น Browser ที่เปิดจาก LINE หรือไม่
+const isLineBrowser = /Line/i.test(navigator.userAgent);
 
-        link.click();
+if (isLineBrowser) {
+    // เปิดรูปในหน้าใหม่
+    const newWindow = window.open(imageUrl, '_blank');
 
-        setTimeout(() => {
-            URL.revokeObjectURL(link.href);
-        }, 1000);
+    if (!newWindow) {
+        window.location.href = imageUrl;
+    }
+
+    return;
+}
+
+// Browser ปกติ
+const link = document.createElement('a');
+
+link.href = imageUrl;
+link.download = 'MAHAMIT-PROMPTPAY-QR.png';
+
+document.body.appendChild(link);
+link.click();
+link.remove();
+
+setTimeout(() => {
+    URL.revokeObjectURL(imageUrl);
+}, 3000);
 
     } catch (error) {
 
