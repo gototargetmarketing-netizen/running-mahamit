@@ -1224,14 +1224,53 @@ document.addEventListener('change', function(event) {
             backgroundColor: '#1b261c'
         });
 
+        // แปลงภาพเป็น Blob
+        const blob = await new Promise(resolve => {
+            canvas.toBlob(resolve, 'image/png');
+        });
+
+        if (!blob) {
+            throw new Error('ไม่สามารถสร้างรูปภาพได้');
+        }
+
+        const file = new File(
+            [blob],
+            'MAHAMIT-MAERIM-BOOKING.png',
+            { type: 'image/png' }
+        );
+
+        // ถ้ามือถือรองรับ Share รูปภาพ
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+            await navigator.share({
+                files: [file],
+                title: 'ข้อมูลการสมัคร MAHAMIT MAERIM',
+                text: 'ข้อมูลการสมัครวิ่ง MAHAMIT MAERIM CROSS COUNTRY'
+            });
+
+            return;
+        }
+
+        // ถ้าอุปกรณ์ไม่รองรับ ให้ดาวน์โหลดแบบเดิม
         const link = document.createElement('a');
-
         link.download = 'MAHAMIT-MAERIM-BOOKING.png';
-        link.href = canvas.toDataURL('image/png');
-
+        link.href = URL.createObjectURL(blob);
         link.click();
 
+        setTimeout(() => {
+            URL.revokeObjectURL(link.href);
+        }, 1000);
+
     } catch (error) {
+
+        // ถ้าผู้ใช้กดยกเลิก Share ไม่ต้องแจ้ง Error
+        if (error.name === 'AbortError') {
+            return;
+        }
+
         console.error(error);
         alert('ไม่สามารถบันทึกรูปภาพได้ กรุณาลองใหม่อีกครั้ง');
     }
