@@ -729,7 +729,7 @@
     <footer class="bg-brand-dark py-12 border-t border-brand-gold/10 text-center text-xs text-brand-cream/60">
         <div class="max-w-7xl mx-auto px-4">
             <p class="mb-2 text-sm text-brand-cream font-medium">สอบถามข้อมูลเพิ่มเติมเกี่ยวกับงานวิ่ง</p>
-            <p class="text-brand-gold mb-6 font-semibold">Facebook: Kriengkrai Mahamit (KK Market)</p>
+            <p class="text-brand-gold mb-6 font-semibold">Facebook: Kriangkrai Mahamit (KK Market)</p>
            
         </div>
     </footer>
@@ -1318,30 +1318,14 @@ if (
 
         // ถ้ามือถือรองรับ Share รูปภาพ
         // ถ้าไม่รองรับ Share ให้ดาวน์โหลดแทน
-// 📱 ใช้ Share บนมือถือ
-if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-    try {
-        await navigator.share({
-            files: [file],
-            title: 'MAHAMIT MAERIM',
-            text: 'รูปภาพยืนยันการลงทะเบียน MAHAMIT MAERIM CROSS COUNTRY'
-        });
-
-        return;
-    } catch (error) {
-        if (error.name === 'AbortError') {
-            return;
-        }
-    }
-}
-
-// 💻 ถ้า Share ใช้ไม่ได้ ให้เปิดรูปภาพแทน
-const imageUrl = URL.createObjectURL(blob);
-window.open(imageUrl, '_blank');
+const link = document.createElement('a');
+link.download = 'MAHAMIT-MAERIM-BOOKING.png';
+link.href = URL.createObjectURL(blob);
+link.click();
 
 setTimeout(() => {
-    URL.revokeObjectURL(imageUrl);
-}, 60000);
+    URL.revokeObjectURL(link.href);
+}, 1000);
 
         
 
