@@ -690,6 +690,10 @@
             </p>
 
             <div class="bg-brand-dark/70 rounded-2xl p-4 border border-brand-gold/20 text-left mb-6 text-xs space-y-2">
+                <div class="flex justify-between">
+    <span class="text-brand-cream/60">รหัสการลงทะเบียน:</span>
+    <span id="resRegistrationId" class="text-brand-gold font-bold">--</span>
+</div>
                 <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล:</span> <span id="resName" class="text-white font-medium">--</span></div>
                 <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง:</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
                 <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ:</span> <span id="resShirt" class="text-white font-medium">--</span></div>
@@ -1115,6 +1119,24 @@ document.addEventListener('change', function(event) {
         clearFieldError(field);
     }
 });
+
+function createRegistrationId() {
+    const now = new Date();
+
+    const pad = (num) => String(num).padStart(2, '0');
+
+    const date =
+        now.getFullYear() +
+        pad(now.getMonth() + 1) +
+        pad(now.getDate()) + '-' +
+        pad(now.getHours()) +
+        pad(now.getMinutes()) +
+        pad(now.getSeconds());
+
+    const random = Math.floor(1000 + Math.random() * 9000);
+
+    return 'MM-' + date + '-' + random;
+}
         
         async function handleFormSubmit(event) {
     event.preventDefault();
@@ -1160,6 +1182,7 @@ document.addEventListener('change', function(event) {
                 const compressedSlip = await compressSlipImage(slipFile);
 
                 const formData = {
+                    registrationId: createRegistrationId(),
                     fullName: document.getElementById('fullName').value.trim(),
                     gender: document.getElementById('gender').value,
                     age: document.getElementById('age').value,
@@ -1191,6 +1214,7 @@ document.addEventListener('change', function(event) {
                 });
 
                 // แสดงสรุปหลังส่งคำขอสำเร็จระดับ network
+                document.getElementById('resRegistrationId').innerText = formData.registrationId;
                 document.getElementById('resName').innerText = formData.fullName;
                 document.getElementById('resCategory').innerText = formData.raceCategory;
                 document.getElementById('resShirt').innerText = formData.shirtSize;
