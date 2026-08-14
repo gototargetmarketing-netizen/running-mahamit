@@ -327,15 +327,37 @@
                             <input type="tel" id="phone" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" placeholder="เช่น 0891234567" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
 
-                        <!-- Email -->
-                        <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">อีเมล <span class="text-brand-gold">*</span></label>
-                            <input type="email" id="email" required placeholder="example@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" class="w-full ...
-                        <!-- Address -->
-                        <div class="md:col-span-2">
-                            <label class="block text-sm font-medium text-brand-cream mb-2">ที่อยู่สำหรับจัดส่งอุปกรณ์ (เสื้อ / Bib) <span class="text-brand-gold">*</span></label>
-                            <textarea id="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition"></textarea>
-                        </div>
+                       <!-- Email -->
+<div>
+    <label class="block text-sm font-medium text-brand-cream mb-2">
+        อีเมล <span class="text-brand-gold">*</span>
+    </label>
+
+    <input
+        type="email"
+        id="email"
+        required
+        placeholder="example@email.com"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+        class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition"
+    >
+</div>
+
+<!-- Address -->
+<div class="md:col-span-2">
+    <label class="block text-sm font-medium text-brand-cream mb-2">
+        ที่อยู่สำหรับจัดส่งอุปกรณ์ (เสื้อ / Bib)
+        <span class="text-brand-gold">*</span>
+    </label>
+
+    <textarea
+        id="address"
+        rows="3"
+        required
+        placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"
+        class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition"
+    ></textarea>
+</div>
                     </div>
                 </div>
 
