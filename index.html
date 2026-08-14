@@ -360,7 +360,7 @@
                         <!-- Age -->
                         <div>
                             <label class="block text-sm font-medium text-brand-cream mb-2">อายุ (ปี) <span class="text-brand-gold">*</span></label>
-                            <input type="number" id="age" min="1" max="99" required inputmode="numeric" placeholder="เช่น 28" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                            <input type="number" id="age" min="1" max="99" required inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,2)" placeholder="เช่น 28" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
 
                         <!-- Phone -->
