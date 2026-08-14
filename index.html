@@ -715,7 +715,7 @@
     <!-- ปุ่มกลับหน้าหลัก -->
     <button
         type="button"
-        onclick="document.getElementById('successModal').classList.add('hidden'); window.scrollTo({top: 0, behavior: 'smooth'});"
+        onclick="closeModal()"
         class="px-6 py-3 bg-white/10 text-white border border-brand-gold/30 font-bold rounded-xl hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center gap-2"
     >
         <i class="fa-solid fa-house"></i>
@@ -1221,14 +1221,7 @@ function createRegistrationId() {
                 document.getElementById('resAmount').innerText =
                     formData.paymentAmount.toLocaleString() + ' บาท';
 
-                <button
-    type="button"
-    onclick="document.getElementById('successModal').classList.add('hidden'); window.scrollTo({top: 0, behavior: 'smooth'});"
-    class="px-6 py-3 bg-white/10 text-white border border-brand-gold/30 font-bold rounded-xl hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center gap-2"
->
-    <i class="fa-solid fa-house"></i>
-    กลับสู่หน้าหลัก
-</button>
+                document.getElementById('successModal').classList.remove('hidden');
 
             } catch (error) {
                 console.error(error);
@@ -1323,35 +1316,12 @@ if (
             { type: 'image/png' }
         );
 
-       // 📱 มือถือ: ใช้ Share เพื่อให้เลือก "บันทึกรูปภาพ"
-const isMobile =
-    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-if (
-    isMobile &&
-    navigator.share &&
-    navigator.canShare &&
-    navigator.canShare({ files: [file] })
-) {
-    await navigator.share({
-        files: [file],
-        title: 'MAHAMIT MAERIM',
-        text: 'รูปภาพยืนยันการลงทะเบียน MAHAMIT MAERIM CROSS COUNTRY'
-    });
-
-    return;
-}
-
-// 💻 คอมพิวเตอร์ หรือมือถือที่ไม่รองรับ Share
+        // ถ้ามือถือรองรับ Share รูปภาพ
+        // ถ้าไม่รองรับ Share ให้ดาวน์โหลดแทน
 const link = document.createElement('a');
-
 link.download = 'MAHAMIT-MAERIM-BOOKING.png';
 link.href = URL.createObjectURL(blob);
-
-document.body.appendChild(link);
 link.click();
-link.remove();
 
 setTimeout(() => {
     URL.revokeObjectURL(link.href);
