@@ -1316,12 +1316,35 @@ if (
             { type: 'image/png' }
         );
 
-        // ถ้ามือถือรองรับ Share รูปภาพ
-        // ถ้าไม่รองรับ Share ให้ดาวน์โหลดแทน
+       // 📱 มือถือ: ใช้ Share เพื่อให้เลือก "บันทึกรูปภาพ"
+const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+if (
+    isMobile &&
+    navigator.share &&
+    navigator.canShare &&
+    navigator.canShare({ files: [file] })
+) {
+    await navigator.share({
+        files: [file],
+        title: 'MAHAMIT MAERIM',
+        text: 'รูปภาพยืนยันการลงทะเบียน MAHAMIT MAERIM CROSS COUNTRY'
+    });
+
+    return;
+}
+
+// 💻 คอมพิวเตอร์ หรือมือถือที่ไม่รองรับ Share
 const link = document.createElement('a');
+
 link.download = 'MAHAMIT-MAERIM-BOOKING.png';
 link.href = URL.createObjectURL(blob);
+
+document.body.appendChild(link);
 link.click();
+link.remove();
 
 setTimeout(() => {
     URL.revokeObjectURL(link.href);
