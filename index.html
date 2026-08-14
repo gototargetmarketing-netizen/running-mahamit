@@ -137,6 +137,21 @@
         grid-column: span 1;
     }
 }
+/* ข้อความแจ้งเตือนใต้ช่องกรอก */
+.field-error {
+    display: block;
+    color: #ff7b7b;
+    font-size: 0.8rem;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* ทำกรอบช่องที่กรอกผิด */
+.field-invalid {
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 0 1px rgba(255, 107, 107, 0.15);
+}
+    
 </style>
 
 </head>
@@ -777,8 +792,192 @@ document.addEventListener('keydown', function(event) {
             });
         }
 
+// ============================================================
+// ตรวจสอบข้อมูลและแสดงข้อความใต้ช่องที่กรอกผิด
+// ============================================================
+
+const fieldMessages = {
+    fullName: 'กรุณากรอกชื่อ-นามสกุล',
+    gender: 'กรุณาเลือกเพศ',
+    age: 'กรุณากรอกอายุ 5–99 ปี',
+    phone: 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก',
+    email: 'กรุณากรอกอีเมลให้ถูกต้อง เช่น example@email.com',
+    address: 'กรุณากรอกที่อยู่',
+    raceCategory: 'กรุณาเลือกระยะวิ่ง',
+    shirtSize: 'กรุณาเลือกไซส์เสื้อ',
+    emergencyName: 'กรุณากรอกชื่อผู้ติดต่อฉุกเฉิน',
+    emergencyRelation: 'กรุณาเลือกความสัมพันธ์',
+    emergencyPhone: 'กรุณากรอกเบอร์ฉุกเฉินให้ครบ 10 หลัก',
+    paymentDate: 'กรุณาเลือกวันที่ชำระเงิน',
+    paymentTime: 'กรุณากรอกเวลาที่ชำระเงิน',
+    paymentAmount: 'กรุณาตรวจสอบยอดที่โอน',
+    slipFile: 'กรุณาแนบหลักฐานการชำระเงิน'
+};
+
+function showFieldError(field, message) {
+    if (!field) return;
+
+    field.classList.add('field-invalid');
+
+    // ถ้ามีข้อความเดิมอยู่แล้ว ไม่สร้างซ้ำ
+    let error = document.getElementById(field.id + '-error');
+
+    if (!error) {
+        error = document.createElement('span');
+        error.id = field.id + '-error';
+        error.className = 'field-error';
+
+        // ใส่ข้อความต่อจากช่อง
+        field.parentElement.appendChild(error);
+    }
+
+    error.textContent = '⚠ ' + message;
+}
+
+function clearFieldError(field) {
+    if (!field) return;
+
+    field.classList.remove('field-invalid');
+
+    const error = document.getElementById(field.id + '-error');
+
+    if (error) {
+        error.remove();
+    }
+}
+
+// ตรวจสอบทุกช่องเมื่อกด Submit
+function validateRegistrationForm() {
+    const form = document.getElementById('registrationForm');
+
+    // ล้างข้อความเก่าก่อน
+    form.querySelectorAll('.field-error').forEach(function(error) {
+        error.remove();
+    });
+
+    form.querySelectorAll('.field-invalid').forEach(function(field) {
+        field.classList.remove('field-invalid');
+    });
+
+    let firstInvalidField = null;
+
+    const fields = [
+        'fullName',
+        'gender',
+        'age',
+        'phone',
+        'email',
+        'address',
+        'raceCategory',
+        'shirtSize',
+        'emergencyName',
+        'emergencyRelation',
+        'emergencyPhone',
+        'paymentDate',
+        'paymentTime',
+        'paymentAmount',
+        'slipFile'
+    ];
+
+    fields.forEach(function(id) {
+        const field = document.getElementById(id);
+
+        if (!field) return;
+
+        if (!field.checkValidity()) {
+
+            let message = fieldMessages[id] || 'กรุณากรอกข้อมูลให้ถูกต้อง';
+
+            // เบอร์โทร
+            if (id === 'phone' || id === 'emergencyPhone') {
+                if (field.value.length !== 10) {
+                    message = 'กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก';
+                }
+            }
+
+            // อายุ
+            if (id === 'age') {
+                message = 'กรุณากรอกอายุ 5–99 ปี';
+            }
+
+            // อีเมล
+            if (id === 'email') {
+                message = 'กรุณากรอกอีเมลให้ถูกต้อง เช่น example@email.com';
+            }
+
+            showFieldError(field, message);
+
+            if (!firstInvalidField) {
+                firstInvalidField = field;
+            }
+        }
+    });
+
+    // ตรวจ Checkbox ทั้ง 3 ข้อ
+    ['check1', 'check2', 'check3'].forEach(function(id) {
+        const checkbox = document.getElementById(id);
+
+        if (checkbox && !checkbox.checked) {
+            showFieldError(
+                checkbox,
+                'กรุณายอมรับเงื่อนไขก่อนสมัคร'
+            );
+
+            if (!firstInvalidField) {
+                firstInvalidField = checkbox;
+            }
+        }
+    });
+
+    // ถ้ามีช่องผิด ให้เลื่อนไปหาช่องแรก
+    if (firstInvalidField) {
+        firstInvalidField.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+        firstInvalidField.focus({
+            preventScroll: true
+        });
+
+        return false;
+    }
+
+    return true;
+}
+
+// เมื่อผู้ใช้เริ่มแก้ช่อง ให้ลบข้อความเตือนของช่องนั้น
+document.addEventListener('input', function(event) {
+    const field = event.target;
+
+    if (
+        field &&
+        field.form &&
+        field.form.id === 'registrationForm'
+    ) {
+        clearFieldError(field);
+    }
+});
+
+document.addEventListener('change', function(event) {
+    const field = event.target;
+
+    if (
+        field &&
+        field.form &&
+        field.form.id === 'registrationForm'
+    ) {
+        clearFieldError(field);
+    }
+});
+        
         async function handleFormSubmit(event) {
-            event.preventDefault();
+    event.preventDefault();
+
+    // ตรวจสอบข้อมูลก่อนส่ง
+    if (!validateRegistrationForm()) {
+        return;
+    }
 
             if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR_')) {
                 alert('เว็บไซต์ยังไม่ได้ตั้งค่า Google Apps Script Web App URL');
