@@ -107,6 +107,38 @@
     }
 }
     </style>
+
+<style>
+/* จัดฟอร์มให้สวยทั้ง Desktop และ Mobile */
+#registrationForm .grid {
+    align-items: start;
+}
+
+#registrationForm input,
+#registrationForm select,
+#registrationForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#registrationForm textarea {
+    display: block;
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* มือถือ */
+@media (max-width: 767px) {
+    #registrationForm .grid {
+        grid-template-columns: 1fr;
+    }
+
+    #registrationForm .md\:col-span-2 {
+        grid-column: span 1;
+    }
+}
+</style>
+
 </head>
 <body class="min-h-screen selection:bg-brand-gold selection:text-brand-dark">
 
@@ -298,7 +330,7 @@
                         <!-- Email -->
                         <div>
                             <label class="block text-sm font-medium text-brand-cream mb-2">อีเมล <span class="text-brand-gold">*</span></label>
-<input type="email" id="email" required placeholder="example@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" class="w-full ...
+                            <input type="email" id="email" required placeholder="example@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" class="w-full ...
                         <!-- Address -->
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-brand-cream mb-2">ที่อยู่สำหรับจัดส่งอุปกรณ์ (เสื้อ / Bib) <span class="text-brand-gold">*</span></label>
