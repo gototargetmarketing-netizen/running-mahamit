@@ -1345,36 +1345,19 @@ if (
     return;
 }
 
-        // 💻 ถ้าไม่รองรับการ Share ให้เปิดรูปในหน้าใหม่แทน
-const imageUrl = URL.createObjectURL(blob);
 
-// ตรวจว่าเป็น Browser ที่เปิดจาก LINE หรือไม่
-const isLineBrowser = /Line/i.test(navigator.userAgent);
 
-if (isLineBrowser) {
-    // เปิดรูปในหน้าใหม่
-    const newWindow = window.open(imageUrl, '_blank');
+// 📱 ถ้าไม่สามารถ Share ไฟล์ได้
+// ให้เปิดรูป QR จริงโดยตรง
+const qrImageUrl = './promptpay-qr.png';
 
-    if (!newWindow) {
-        window.location.href = imageUrl;
-    }
+const newWindow = window.open(qrImageUrl, '_blank');
 
-    return;
+if (!newWindow) {
+    window.location.href = qrImageUrl;
 }
 
-// Browser ปกติ
-const link = document.createElement('a');
-
-link.href = imageUrl;
-link.download = 'MAHAMIT-PROMPTPAY-QR.png';
-
-document.body.appendChild(link);
-link.click();
-link.remove();
-
-setTimeout(() => {
-    URL.revokeObjectURL(imageUrl);
-}, 3000);
+return;
 
     } catch (error) {
 
