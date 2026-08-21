@@ -705,52 +705,58 @@
 
 </div>
 
-<!-- Blood Type -->
-<div>
-    <label class="flex items-baseline gap-2 mb-3">
-        <span>
-            กรุ๊ปเลือด
-        </span>
+<!-- Blood Type + Medical Conditions -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
-            Blood Type
-        </span>
-    </label>
+    <!-- Blood Type -->
+    <div>
+        <label class="flex items-baseline gap-2 mb-3">
+            <span>
+                กรุ๊ปเลือด
+            </span>
 
-    <select
-        id="bloodType"
-        name="bloodType"
-        class="w-full px-5 py-4 rounded-xl bg-brand-dark border border-brand-gold/30 text-white focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none"
-    >
-        <option value="">-- กรุณาเลือกกรุ๊ปเลือด --</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="AB">AB</option>
-        <option value="O">O</option>
-        <option value="Unknown">ไม่ทราบ / Unknown</option>
-    </select>
+            <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
+                Blood Type
+            </span>
+        </label>
+
+        <select
+            id="bloodType"
+            name="bloodType"
+            class="w-full px-5 py-4 rounded-xl bg-brand-dark border border-brand-gold/30 text-white focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none"
+        >
+            <option value="">-- กรุณาเลือกกรุ๊ปเลือด --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+            <option value="Unknown">ไม่ทราบ / Unknown</option>
+        </select>
+    </div>
+
+    <!-- Medical Conditions -->
+    <div>
+        <label class="flex items-baseline gap-2 mb-3">
+            <span>
+                โรคประจำตัว
+            </span>
+
+            <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
+                Medical Conditions
+            </span>
+        </label>
+
+        <textarea
+            id="medicalConditions"
+            name="medicalConditions"
+            rows="1"
+            placeholder="เช่น ไม่มี / หอบหืด / ภูมิแพ้"
+            class="w-full h-[68px] px-5 py-4 rounded-xl bg-brand-dark border border-brand-gold/30 text-white placeholder:text-white/30 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none resize-none"
+        ></textarea>
+    </div>
+
 </div>
 
-<!-- Medical Conditions -->
-<div>
-    <label class="flex items-baseline gap-2 mb-3">
-        <span>
-            โรคประจำตัว
-        </span>
-
-        <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
-            Medical Conditions
-        </span>
-    </label>
-
-    <textarea
-        id="medicalConditions"
-        name="medicalConditions"
-        rows="1"
-        placeholder="เช่น ไม่มี / หอบหืด / ภูมิแพ้"
-        class="w-full px-5 py-4 rounded-xl bg-brand-dark border border-brand-gold/30 text-white placeholder:text-white/30 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none resize-none"
-    ></textarea>
-</div>
 
 <!-- Phone -->
 <div>
