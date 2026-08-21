@@ -679,6 +679,33 @@
                             <input type="number" id="age" min="1" max="99" required inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,2)" placeholder="เช่น 28" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
 
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <!-- กรุ๊ปเลือด -->
+    <div>
+        <label class="block mb-2 font-semibold">
+            กรุ๊ปเลือด *
+            <span class="block text-xs sm:text-sm text-brand-cream/60 mt-1">
+                Blood Type
+            </span>
+        </label>
+
+        <select
+            name="bloodType"
+            required
+            class="w-full px-5 py-4 rounded-xl bg-brand-dark border border-brand-gold/30 text-white focus:border-brand-gold outline-none"
+        >
+            <option value="">-- กรุณาเลือกกรุ๊ปเลือด --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+            <option value="ไม่ทราบ">ไม่ทราบ / Unknown</option>
+        </select>
+    </div>
+
+</div>
+
                         <!-- Phone -->
                         <div>
                             <label class="block text-sm font-medium text-brand-cream mb-2">เบอร์โทรศัพท์ <span class="text-brand-gold">*</span></label>
