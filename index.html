@@ -877,21 +877,33 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                       
                         <!-- Emergency Name -->
-                        <div>
-                            ชื่อผู้ติดต่อฉุกเฉิน *
-<span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
-    Emergency Contact Name
-</span>
+                        <label class="mb-3 block">
+    <span class="block">
+        ชื่อผู้ติดต่อฉุกเฉิน
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+        Emergency Contact Name
+    </span>
+</label>
                             <input type="text" id="emergencyName" required placeholder="ชื่อ-นามสกุล ผู้ติดต่อ" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
 
                         <!-- Relationship -->
                         <div>
-                            ความสัมพันธ์ *
-<span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
-    Relationship
-</span>
+<label class="mb-3 block">
+    <span class="block">
+        ความสัมพันธ์
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+        Relationship
+    </span>
+</label>
                             <select id="emergencyRelation" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกความสัมพันธ์ --</option>
                                 <option value="มารดา">มารดา</option>
