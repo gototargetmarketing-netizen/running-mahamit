@@ -106,8 +106,100 @@
         font-size: 25px;
     }
 }
+
+        /* จัดโลโก้ Hero */
+.hero-logos {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    height: 190px;
+    margin: -24px auto 12px;
+}
+
+.hero-logos .old-logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logos .old-logo img {
+    max-width: 100%;
+    max-height: 110px;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero-logos .old-logo.left {
+    left: 0;
+}
+
+.hero-logos .old-logo.right {
+    right: 0;
+}
+
+.hero-logos .main-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logos .main-logo img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+
+    .hero-logos {
+        height: 150px;
+        margin-top: -18px;
+    }
+
+    .hero-logos .old-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .hero-logos .old-logo img {
+        max-width: 70px;
+        max-height: 65px;
+    }
+
+    .hero-logos .old-logo.left {
+        left: 0;
+    }
+
+    .hero-logos .old-logo.right {
+        right: 0;
+    }
+
+    .hero-logos .main-logo {
+        width: 175px;
+        height: 120px;
+    }
+
+    .hero-logos .main-logo img {
+        max-height: 110px;
+    }
+}
     </style>
 
+
+    
 <style>
 /* จัดฟอร์มให้สวยทั้ง Desktop และ Mobile */
 #registrationForm {
@@ -271,23 +363,40 @@
 
             
 <!-- Sponsor Logos -->
-<div class="flex justify-center items-center gap-4 sm:gap-6 -mt-6 mb-3 sm:mb-4">
+<!-- Main & Sponsor Logos -->
+<div class="relative w-full max-w-5xl mx-auto h-40 sm:h-48 -mt-6 mb-3 sm:mb-4">
 
-    <!-- Logo 1 -->
-    <div class="flex items-center justify-center h-32 sm:h-36">
+    <!-- Logo เก่า ซ้าย -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 
+                flex items-center justify-center
+                w-24 sm:w-32 h-24 sm:h-32">
         <img
             src="./logo-1.png"
             alt="ผู้สนับสนุน 1"
-            class="max-h-28 sm:max-h-32 w-auto object-contain"
+            class="max-h-20 sm:max-h-28 w-auto object-contain"
         >
     </div>
 
-    <!-- Logo 2 -->
-    <div class="flex items-center justify-center h-32 sm:h-36">
+    <!-- Logo ใหม่ ตรงกลาง -->
+    <div class="absolute left-1/2 top-1/2 
+                -translate-x-1/2 -translate-y-1/2
+                flex items-center justify-center
+               w-56 sm:w-72 h-40 sm:h-48">
+        <img
+            src="./mahamit-cross-country.png"
+            alt="MAHAMIT MAERIM CROSS COUNTRY"
+            class="max-h-32 sm:max-h-40 max-w-full w-auto object-contain"
+        >
+    </div>
+
+    <!-- Logo เก่า ขวา -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 
+                flex items-center justify-center
+                w-24 sm:w-32 h-24 sm:h-32">
         <img
             src="./logo-2.png"
             alt="ผู้สนับสนุน 2"
-            class="max-h-28 sm:max-h-32 w-auto object-contain"
+            class="max-h-20 sm:max-h-28 w-auto object-contain"
         >
     </div>
 
