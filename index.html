@@ -637,6 +637,8 @@
         </div>
     </section>
 
+</section>
+    
     <section id="register" class="py-20 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -712,7 +714,7 @@
     <div>
         <label class="flex items-baseline gap-2 mb-3">
             <span>
-                กรุ๊ปเลือด
+                กรุ๊ปเลือด <span class="text-brand-gold">*</span>
             </span>
 
             <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
@@ -738,7 +740,7 @@
     <div>
         <label class="flex items-baseline gap-2 mb-3">
             <span>
-                โรคประจำตัว
+                โรคประจำตัว <span class="text-brand-gold">*</span>
             </span>
 
             <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
@@ -763,7 +765,7 @@
 
                         
                         <!-- Phone -->
-                        <div>
+                        <div class="mt-6">
                             <label class="flex items-baseline gap-2 mb-3">
     <span>
         เบอร์โทรศัพท์ <span class="text-brand-gold">*</span>
@@ -827,13 +829,22 @@
                 <div>
                     <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
                         <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">2</span>
-                        <h3 class="text-xl font-bold text-white">เลือกระยะทางและไซส์เสื้อ</h3>
+                        <h3 class="text-xl font-bold text-white">เลือกระยะทางและไซส์เสื้อ ( Distance and shirt size )</h3>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Category -->
                         <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">ระยะที่ต้องการสมัคร <span class="text-brand-gold">*</span></label>
+<label class="block mb-4">
+    <span>
+        ระยะที่ต้องการสมัคร
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="text-brand-cream/60 font-normal ml-2">
+        Distance
+    </span>
+</label>
                             <select id="raceCategory" required onchange="updatePrice()" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกระยะวิ่ง --</option>
                                 <option value="Fun Run 6 KM">🏃 Fun Run 6 KM (349 บาท)</option>
@@ -843,8 +854,17 @@
                         </div>
 
                         <!-- Shirt Size -->
-                        <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">ขนาดไซส์เสื้อ <span class="text-brand-gold">*</span></label>
+                       <div>
+<label class="block mb-4">
+    <span>
+        ขนาดไซส์เสื้อ
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="text-brand-cream/60 font-normal ml-2">
+        Shirt Size
+    </span>
+</label>
                             <select id="shirtSize" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกไซส์เสื้อ --</option>
                                 <option value="XS">XS (รอบอก 34 นิ้ว)</option>
@@ -863,19 +883,37 @@
                 <div>
                     <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
                         <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">3</span>
-                        <h3 class="text-xl font-bold text-white">ผู้ติดต่อกรณีฉุกเฉิน (Emergency Contact)</h3>
+                        <h3 class="text-xl font-bold text-white">ผู้ติดต่อกรณีฉุกเฉิน ( Emergency Contact )</h3>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <!-- Emergency Name -->
                         <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">ชื่อผู้ติดต่อฉุกเฉิน <span class="text-brand-gold">*</span></label>
+                            <label class="block mb-4">
+    <span>
+        ชื่อผู้ติดต่อ
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="text-brand-cream/60 font-normal ml-2">
+        Contact Name
+    </span>
+</label>
                             <input type="text" id="emergencyName" required placeholder="ชื่อ-นามสกุล ผู้ติดต่อ" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
 
                         <!-- Relationship -->
                         <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">ความสัมพันธ์ <span class="text-brand-gold">*</span></label>
+                                                      <label class="block mb-4">
+    <span>
+        ความสัมพันธ์
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="text-brand-cream/60 font-normal ml-2">
+        Relationship
+    </span>
+</label>
                             <select id="emergencyRelation" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกความสัมพันธ์ --</option>
                                 <option value="มารดา">มารดา</option>
@@ -890,8 +928,17 @@
 
                         <!-- Emergency Phone -->
                         <div>
-                            <label class="block text-sm font-medium text-brand-cream mb-2">เบอร์โทรผู้ติดต่อฉุกเฉิน <span class="text-brand-gold">*</span></label>
-                            <input type="tel" id="emergencyPhone" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" onblur="this.value=normalizeThaiPhone(this.value)" placeholder="เบอร์โทรฉุกเฉิน" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
+                            <label class="block mb-4">
+    <span>
+        เบอร์โทร
+        <span class="text-brand-gold">*</span>
+    </span>
+
+    <span class="text-brand-cream/60 font-normal ml-2">
+        Phone Number
+    </span>
+</label>
+                            <input type="tel" id="emergencyPhone" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" onblur="this.value=normalizeThaiPhone(this.value)" placeholder="เบอร์โทรฉุกเฉิน / Emergency Number" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                         </div>
                     </div>
                 </div>
@@ -900,7 +947,7 @@
                 <div>
                     <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
                         <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">4</span>
-                        <h3 class="text-xl font-bold text-white">ชำระเงินและหลักฐานการโอน</h3>
+                        <h3 class="text-xl font-bold text-white">การชำระเงิน ( Payment )</h3>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start bg-brand-dark/40 p-6 rounded-2xl border border-brand-gold/20">
@@ -908,7 +955,7 @@
                      <div class="text-center bg-white p-6 rounded-2xl shadow-lg w-full">
 
     <h4 class="text-brand-dark font-bold text-base mb-2">
-        สแกน QR Code ชำระเงิน
+        Payment QR Code
     </h4>
 
     <p class="text-xs text-gray-500 mb-4">
@@ -946,12 +993,15 @@
                         <!-- Payment inputs -->
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-medium text-brand-cream mb-2">วันที่ชำระเงิน <span class="text-brand-gold">*</span></label>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">วันที่ชำระเงิน <span class="text-brand-gold">*</span>
+                                 <span class="text-brand-cream/60 font-normal ml-2">Payment date</span>
+                                </label>
                                 <input type="date" id="paymentDate" required onkeydown="return false" onpaste="return false"class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                             </div>
                             <div>
     <label class="block text-sm font-medium text-brand-cream mb-2">
         เวลาที่ชำระเงิน <span class="text-brand-gold">*</span>
+        <span class="text-brand-cream/60 font-normal ml-2">Payment time</span>
     </label>
 
     <input 
@@ -963,12 +1013,16 @@
 </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-brand-cream mb-2">ยอดที่โอนเงิน (บาท) <span class="text-brand-gold">*</span></label>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">ยอดที่โอนเงิน (บาท) <span class="text-brand-gold">*</span>
+                            <span class="text-brand-cream/60 font-normal ml-2">Transfer amount</span></label>
+                                
                                 <input type="number" id="paymentAmount" required placeholder="เช่น 650.00" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-brand-cream mb-2">แนบหลักฐานการชำระเงิน (สลิป) <span class="text-brand-gold">*</span></label>
+                                <label class="block text-sm font-medium text-brand-cream mb-2">แนบหลักฐานการชำระเงิน (สลิป) <span class="text-brand-gold">*</span>
+                                <span class="text-brand-cream/60 font-normal ml-2">Payment slip</span></label>
+                            
                                 <input type="file" id="slipFile" accept=".jpg, .jpeg, .png, .pdf" required onchange="previewSlip(event)" class="w-full text-sm text-brand-cream file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-brand-gold file:text-brand-dark hover:file:bg-brand-lightGold file:cursor-pointer transition">
                                 <span class="text-xs text-brand-cream/60 mt-1 block">จำกัดเฉพาะไฟล์ JPG / PNG / PDF ขนาดไม่เกิน 5MB</span>
                                 <div id="slipPreviewContainer" class="mt-2 hidden">
@@ -979,6 +1033,163 @@
                     </div>
                 </div>
 
+<!-- =========================================================
+     COMPETITION RULES
+========================================================= -->
+
+<section id="rules" class="mt-12">
+
+    <div class="glass-card rounded-2xl p-6 md:p-8
+                border border-brand-gold/30
+                bg-brand-olive/40">
+
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-8">
+
+            <div class="w-12 h-12 rounded-full
+                        bg-brand-gold text-brand-dark
+                        flex items-center justify-center
+                        font-bold text-xl">
+                <i class="fa-solid fa-scroll"></i>
+            </div>
+
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">
+                    กติกาการแข่งขัน
+                </h2>
+
+                <p class="text-sm md:text-base text-brand-cream/60 mt-1">
+                    Competition Rules
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Rule 1 -->
+        <div class="mb-8">
+
+            <h3 class="text-lg md:text-xl font-bold text-brand-gold mb-3">
+                1. การรับรองข้อมูลและความพร้อมของผู้เข้าแข่งขัน
+            </h3>
+
+            <p class="text-brand-cream/90 leading-7">
+                ผู้เข้าแข่งขันต้องรับรองว่าข้อมูลที่ให้ไว้เป็นความจริงทุกประการ
+                และขอยืนยันว่าผู้เข้าแข่งขันมีสภาพร่างกายสมบูรณ์แข็งแรง
+                มีความพร้อม และสามารถลงแข่งขันในประเภทที่ลงสมัครได้
+            </p>
+
+            <p class="text-sm md:text-base text-brand-cream/60 leading-6 mt-2">
+                Participants must certify that the information provided is true in all respects
+                and confirm that they are physically fit, ready, and able to compete
+                in the category for which they have registered.
+            </p>
+
+        </div>
+
+
+        <!-- Rule 2 -->
+        <div class="mb-8">
+
+            <h3 class="text-lg md:text-xl font-bold text-brand-gold mb-3">
+                2. การปฏิบัติตามกฎและความรับผิดชอบ
+            </h3>
+
+            <p class="text-brand-cream/90 leading-7">
+                ผู้เข้าแข่งขันจะปฏิบัติตามกฎ กติกาทุกข้อ
+                โดยไม่เรียกร้องค่าเสียหายใด ๆ หากเกิดอันตราย
+                หรือบาดเจ็บแก่ตัวผู้เข้าแข่งขัน ทั้งก่อนและระหว่างแข่งขัน
+            </p>
+
+            <p class="text-sm md:text-base text-brand-cream/60 leading-6 mt-2">
+                Contestants agree to follow all rules and regulations
+                and shall not claim damages in the event of danger or injury
+                occurring before or during the competition.
+            </p>
+
+        </div>
+
+
+        <!-- Rule 3 -->
+        <div class="mb-8">
+
+            <h3 class="text-lg md:text-xl font-bold text-brand-gold mb-3">
+                3. หลักฐาน การบันทึกภาพ และเหตุสุดวิสัย
+            </h3>
+
+            <p class="text-brand-cream/90 leading-7">
+                ผู้เข้าแข่งขันยินดีแสดงหลักฐานเพื่อพิสูจน์ตนเองต่อคณะผู้จัดการแข่งขัน
+                และยินยอมให้ผู้จัดถ่ายภาพหรือภาพยนตร์บันทึกการแข่งขัน
+                และถือเป็นลิขสิทธิ์ของคณะผู้จัดการแข่งขันครั้งนี้
+                ในกรณีที่กิจกรรมนี้ต้องยกเลิกทั้งหมดหรือส่วนใดส่วนหนึ่ง
+                โดยสืบเนื่องจากเหตุสุดวิสัยใด ๆ ทางธรรมชาติหรือภาวะอื่นใดก็ตาม
+            </p>
+
+            <p class="text-sm md:text-base text-brand-cream/60 leading-6 mt-2">
+                Participants agree to provide identification when requested by the organizers
+                and consent to photography and video recording during the event.
+                Such materials shall be considered the property of the event organizers.
+                The event may be cancelled in whole or in part due to force majeure,
+                natural events, or other circumstances beyond the organizers' control.
+            </p>
+
+        </div>
+
+
+        <!-- Rule 4 -->
+        <div class="mb-8">
+
+            <h3 class="text-lg md:text-xl font-bold text-brand-gold mb-3">
+                4. การคืนค่าสมัคร
+            </h3>
+
+            <p class="text-brand-cream/90 leading-7">
+                ผู้เข้าแข่งขันรับทราบและยินยอมว่า
+                จะไม่มีการคืนค่าสมัครให้แก่ผู้สมัครทั้งสิ้น
+            </p>
+
+            <p class="text-sm md:text-base text-brand-cream/60 leading-6 mt-2">
+                Participants acknowledge and agree that registration fees are non-refundable.
+            </p>
+
+        </div>
+
+
+        <!-- Rule 5 -->
+        <div>
+
+            <h3 class="text-lg md:text-xl font-bold text-brand-gold mb-3">
+                5. การรายงานตัวและการประท้วง
+            </h3>
+
+            <p class="text-brand-cream/90 leading-7">
+                ผู้ชนะการแข่งขันต้องรายงานตัวต่อคณะกรรมการ
+                ภายใน 15 นาทีหลังจากเข้าสู่เส้นชัยแล้ว
+                โปรดนำบัตรประจำตัวฯ หรือหนังสือที่ทางราชการออกให้มารายงานตัว
+                หากละเลยหรือเพิกเฉย ถือว่าเต็มใจสละสิทธิ์ในการรับรางวัลนั้น ๆ
+                การตัดสินของคณะกรรมการถือเป็นเด็ดขาด
+                หากมีการประท้วงจะต้องวางเงิน 1,000 บาท
+                หากประท้วงไม่สำเร็จจะไม่คืนเงินให้
+                โดยผู้มีสิทธิ์ประท้วงจะต้องเป็นนักวิ่งผู้เข้าร่วมการแข่งขันเท่านั้น
+            </p>
+
+            <p class="text-sm md:text-base text-brand-cream/60 leading-6 mt-2">
+                Winners must report to the committee within 15 minutes
+                after crossing the finish line and present a valid identification document.
+                Failure to report shall be considered a voluntary waiver of the prize.
+                The committee's decision shall be final.
+                A protest requires a deposit of 1,000 baht,
+                which will not be refunded if the protest is unsuccessful.
+                Only registered participants may submit a protest.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+                
   <!-- Section 5: Confirmation & Checkboxes -->
 <div class="space-y-4 pt-6 border-t border-brand-gold/20">
 
@@ -990,9 +1201,15 @@
                 required
                 class="mt-1 w-5 h-5 flex-none shrink-0 accent-brand-gold rounded cursor-pointer"
             >
-            <span class="flex-1 text-sm text-brand-cream/90 leading-relaxed">
-                ข้าพเจ้าตรวจสอบข้อมูลการสมัครเรียบร้อยแล้ว และข้อมูลที่กรอกเป็นความจริงทุกประการ
-            </span>
+            <span class="block">
+        <span class="block">
+            ข้าพเจ้าตรวจสอบข้อมูลการสมัครเรียบร้อยแล้ว และข้อมูลที่กรอกเป็นความจริงทุกประการ
+        </span>
+
+        <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+            I confirm that I have reviewed my registration information and that all information provided is accurate and truthful.
+        </span>
+    </span>
         </label>
     </div>
 
@@ -1004,9 +1221,15 @@
                 required
                 class="mt-1 w-5 h-5 flex-none shrink-0 accent-brand-gold rounded cursor-pointer"
             >
-            <span class="flex-1 text-sm text-brand-cream/90 leading-relaxed">
-                ข้าพเจ้ายอมรับเงื่อนไขการสมัครและกติกาของงานวิ่ง MAHAMIT MAERIM CROSS COUNTRY ทุกประการ
-            </span>
+             <span class="block">
+        <span class="block">
+            ข้าพเจ้ายอมรับเงื่อนไขการสมัครและกติกาของงานวิ่ง MAHAMIT MAERIM CROSS COUNTRY ทุกประการ
+        </span>
+
+        <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+            I agree to all registration terms and conditions of the MAHAMIT MAERIM CROSS COUNTRY.
+        </span>
+    </span>
         </label>
     </div>
 
@@ -1018,9 +1241,15 @@
                 required
                 class="mt-1 w-5 h-5 flex-none shrink-0 accent-brand-gold rounded cursor-pointer"
             >
-            <span class="flex-1 text-sm text-brand-cream/90 leading-relaxed">
-                ข้าพเจ้ายินยอมให้ผู้จัดงานเก็บและใช้ข้อมูลส่วนบุคคลเพื่อวัตถุประสงค์ในการจัดงานและติดต่อเกี่ยวกับงานวิ่ง
-            </span>
+            <span class="block">
+        <span class="block">
+            ข้าพเจ้ายินยอมให้ผู้จัดงานเก็บและใช้ข้อมูลส่วนบุคคลเพื่อวัตถุประสงค์ในการจัดงานและติดต่อเกี่ยวกับงานวิ่ง
+        </span>
+
+        <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+            I consent to the collection and use of my personal information for event management and race-related communication.
+        </span>
+    </span>
         </label>
     </div>
 
@@ -1127,7 +1356,7 @@
         class="px-6 py-3 bg-brand-gold text-brand-dark font-bold rounded-xl hover:bg-brand-lightGold transition shadow-lg flex items-center justify-center gap-2"
     >
         <i class="fa-solid fa-image"></i>
-        บันทึกรูปภาพการจอง
+        แคปหน้าจอไว้เป็นหลักฐาน
     </button>
 
     <!-- ปุ่มกลับหน้าหลัก -->
