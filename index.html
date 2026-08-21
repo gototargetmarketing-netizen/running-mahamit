@@ -1800,17 +1800,10 @@ function normalizeThaiPhone(value) {
     return phone.slice(0, 10);
 }
         
-        let isSubmittingRegistration = false;
+      
 
 async function handleFormSubmit(event) {
     event.preventDefault();
-
-    // ป้องกันการกดส่งซ้ำ
-    if (isSubmittingRegistration) {
-        return;
-    }
-
-    isSubmittingRegistration = true;
 
     // ตรวจสอบข้อมูลก่อนส่ง
     if (!validateRegistrationForm()) {
