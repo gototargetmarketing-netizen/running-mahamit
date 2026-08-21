@@ -870,67 +870,80 @@
                 </div>
 
                 <!-- Section 3: Emergency Contact -->
-                <div>
-                    <div class="flex items-center gap-3 border-b border-brand-gold/20 pb-3 mb-6">
-                        <span class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">3</span>
-                        <h3 class="text-xl font-bold text-white">ผู้ติดต่อกรณีฉุกเฉิน (Emergency Contact)</h3>
-                    </div>
+               <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                       
-                        <!-- Emergency Name -->
-                        <label class="mb-3 block">
-    <span class="block">
-        ชื่อผู้ติดต่อฉุกเฉิน
-        <span class="text-brand-gold">*</span>
-    </span>
+    <!-- Emergency Contact Name -->
+    <div>
+        <label class="block mb-3">
+            <span class="block text-base sm:text-lg font-bold text-brand-cream">
+                ชื่อผู้ติดต่อฉุกเฉิน
+                <span class="text-brand-gold">*</span>
+            </span>
+            <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+                Emergency Contact Name
+            </span>
+        </label>
 
-    <span class="block text-sm text-brand-cream/60 font-normal mt-1">
-        Emergency Contact Name
-    </span>
-</label>
-                            <input type="text" id="emergencyName" required placeholder="ชื่อ-นามสกุล ผู้ติดต่อ" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
-                        </div>
+        <input
+            type="text"
+            id="emergencyName"
+            required
+            placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"
+        >
+    </div>
 
-                        <!-- Relationship -->
-                        <div>
-<label class="mb-3 block">
-    <span class="block">
-        ความสัมพันธ์
-        <span class="text-brand-gold">*</span>
-    </span>
 
-    <span class="block text-sm text-brand-cream/60 font-normal mt-1">
-        Relationship
-    </span>
-</label>
-                            <select id="emergencyRelation" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
-                                <option value="" disabled selected>-- เลือกความสัมพันธ์ --</option>
-                                <option value="มารดา">มารดา</option>
-                                <option value="บิดา">บิดา</option>
-                                <option value="ภรรยา">ภรรยา</option>
-                                <option value="สามี">สามี</option>
-                                <option value="เพื่อน">เพื่อน</option>
-                                <option value="พี่น้อง">พี่น้อง</option>
-                                <option value="อื่นๆ">อื่นๆ</option>
-                            </select>
-                        </div>
+    <!-- Relationship -->
+    <div>
+        <label class="block mb-3">
+            <span class="block text-base sm:text-lg font-bold text-brand-cream">
+                ความสัมพันธ์
+                <span class="text-brand-gold">*</span>
+            </span>
+            <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+                Relationship
+            </span>
+        </label>
 
-                        <!-- Emergency Phone -->
-                        <div>
-<label class="mb-3 block">
-    <span class="block">
-        เบอร์โทรผู้ติดต่อฉุกเฉิน
-        <span class="text-brand-gold">*</span>
-    </span>
+        <select
+            id="emergencyRelation"
+            required
+        >
+            <option value="">-- เลือกความสัมพันธ์ --</option>
+            <option value="บิดา">บิดา (Father)</option>
+            <option value="มารดา">มารดา (Mother)</option>
+            <option value="คู่สมรส">คู่สมรส (Spouse)</option>
+            <option value="พี่น้อง">พี่น้อง (Sibling)</option>
+            <option value="บุตร">บุตร (Child)</option>
+            <option value="เพื่อน">เพื่อน (Friend)</option>
+            <option value="อื่นๆ">อื่นๆ (Other)</option>
+        </select>
+    </div>
 
-    <span class="block text-sm text-brand-cream/60 font-normal mt-1">
-        Emergency Phone Number
-    </span>
-</label>
-                            <input type="tel" id="emergencyPhone" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" onblur="this.value=normalizeThaiPhone(this.value)" placeholder="เบอร์โทรฉุกเฉิน" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
-                        </div>
-                    </div>
+
+    <!-- Emergency Phone -->
+    <div>
+        <label class="block mb-3">
+            <span class="block text-base sm:text-lg font-bold text-brand-cream">
+                เบอร์โทรผู้ติดต่อฉุกเฉิน
+                <span class="text-brand-gold">*</span>
+            </span>
+            <span class="block text-sm text-brand-cream/60 font-normal mt-1">
+                Emergency Phone Number
+            </span>
+        </label>
+
+        <input
+            type="tel"
+            id="emergencyPhone"
+            required
+            inputmode="numeric"
+            placeholder="เบอร์โทรฉุกเฉิน"
+            oninput="this.value=this.value.replace(/\D/g,'')"
+        >
+    </div>
+
+</div>
                 </div>
 
                 <!-- Section 4: Payment & Slip Upload -->
