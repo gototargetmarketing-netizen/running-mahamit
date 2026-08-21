@@ -1800,8 +1800,17 @@ function normalizeThaiPhone(value) {
     return phone.slice(0, 10);
 }
         
-        async function handleFormSubmit(event) {
+        let isSubmittingRegistration = false;
+
+async function handleFormSubmit(event) {
     event.preventDefault();
+
+    // ป้องกันการกดส่งซ้ำ
+    if (isSubmittingRegistration) {
+        return;
+    }
+
+    isSubmittingRegistration = true;
 
     // ตรวจสอบข้อมูลก่อนส่ง
     if (!validateRegistrationForm()) {
@@ -1890,11 +1899,12 @@ function normalizeThaiPhone(value) {
             } catch (error) {
                 console.error(error);
                 alert('ส่งข้อมูลไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่อีกครั้ง');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML =
-                    '<i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครวิ่ง';
-            }
+          finally {
+    submitBtn.innerHTML =
+        '<i class="fa-solid fa-check mr-2"></i> ส่งข้อมูลเรียบร้อยแล้ว';
+
+    submitBtn.disabled = true;
+}
         }
 async function saveQRImage() {
     try {
