@@ -767,7 +767,7 @@
     </span>
 
     <span class="text-xs sm:text-sm text-brand-cream/60 font-normal">
-        Full Name
+        Full Name-Surname
     </span>
 </label>
                             <input type="text" id="fullName" required placeholder="เช่น นายเกรียงไกร มาหามิตร" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white placeholder-brand-cream/30 focus:outline-none focus:border-brand-gold transition">
@@ -788,7 +788,7 @@
                                 <option value="" disabled selected>-- กรุณาเลือกเพศ --</option>
                                 <option value="ชาย">ชาย / Male</option>
                                 <option value="หญิง">หญิง / Female </option>
-                                <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                <option value="ไม่ระบุ">ไม่ระบุ / Unspecified</option>
                             </select>
                         </div>
 
@@ -968,13 +968,13 @@
 </label>
                             <select id="shirtSize" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกไซส์เสื้อ --</option>
-                                <option value="XS">XS (รอบอก/Bust 34 นิ้ว / inch) </option>
-                                <option value="S">S (รอบอก/Bust 36 นิ้ว / inch)</option>
-                                <option value="M">M (รอบอก/Bust 38 นิ้ว / inch)</option>
-                                <option value="L">L (รอบอก/Bust 40 นิ้ว / inch)</option>
-                                <option value="XL">XL (รอบอก/Bust 42 นิ้ว / inch)</option>
-                                <option value="2XL">2XL (รอบอก/Bust 44 นิ้ว / inch)</option>
-                                <option value="3XL">3XL (รอบอก/Bust 46 นิ้ว / inch)</option>
+                                <option value="XS">XS รอบอก (Bust) 34 นิ้ว/inch) </option>
+                                <option value="S">S รอบอก (Bust) 36 นิ้ว/inch)</option>
+                                <option value="M">M รอบอก (Bust) 38 นิ้ว/inch)</option>
+                                <option value="L">L รอบอก (Bust) 40 นิ้ว/inch)</option>
+                                <option value="XL">XL รอบอก (Bust) 42 นิ้ว/inch)</option>
+                                <option value="2XL">2XL รอบอก (Bust) 44 นิ้ว/inch)</option>
+                                <option value="3XL">3XL รอบอก (Bust) 46 นิ้ว/inch)</option>
                             </select>
                         </div>
                     </div>
@@ -1440,7 +1440,7 @@
 <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 mb-3">
     ลงทะเบียนสำเร็จแล้ว!
 </h3>
-            <p class="text-brand-cream/80 text-sm mb-6 leading-relaxed">
+           <p class="text-brand-cream/80 text-sm mb-6 leading-relaxed">
 
     <span class="block">
         <strong class="text-brand-gold">MAHAMIT MAERIM CROSS COUNTRY 2026</strong>
@@ -1459,13 +1459,13 @@
 
             <div class="bg-brand-dark/70 rounded-2xl p-4 border border-brand-gold/20 text-left mb-6 text-xs space-y-2">
                 <div class="flex justify-between">
-    <span class="text-brand-cream/60">รหัสลงทะเบียน (ID):</span>
+    <span class="text-brand-cream/60">รหัสลงทะเบียน:</span>
     <span id="resRegistrationId" class="text-brand-gold font-bold">--</span>
 </div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล/Name:</span> <span id="resName" class="text-white font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง/Race Detail:</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ/Shirt Size:</span> <span id="resShirt" class="text-white font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ/Transfer Amount:</span> <span id="resAmount" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล / Name :</span> <span id="resName" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง / Race Detail :</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ / Shirt Size :</span> <span id="resShirt" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ / Transfer Amount :</span> <span id="resAmount" class="text-white font-medium">--</span></div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
@@ -1476,7 +1476,7 @@
         onclick="saveBookingImage()"
         class="px-6 py-3 bg-brand-gold text-brand-dark font-bold rounded-xl hover:bg-brand-lightGold transition shadow-lg flex items-center justify-center gap-2"
     >
-       
+        <i class="fa-solid fa-image"></i>
         แคปหน้าจอไว้เป็นหลักฐาน (Save Image)
     </button>
 
@@ -1486,7 +1486,7 @@
         onclick="window.location.href = window.location.pathname;"
         class="px-6 py-3 bg-white/10 text-white border border-brand-gold/30 font-bold rounded-xl hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center gap-2"
     >
-       
+        <i class="fa-solid fa-house"></i>
         กลับสู่หน้าหลัก / Home Page
     </button>
 
@@ -1505,7 +1505,7 @@
         // ============================================================
         // 1) ใส่ URL Google Apps Script Web App ของคุณตรงนี้
         // ============================================================
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyx24O7ha8MraHuLSmVjLbq6ntdrjaidLLuWwCwIf21xyXKfAw-MROx1XFANNZEKP6/exec';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUfAVfGWfqJ4ku0ZA0Npz_Jl5him2EB13Nz7I_sWpVSybfm8A1Wpr67DFBSRDDxvC9/exec';
 
         // ราคาแต่ละระยะ
         const RACE_PRICES = {
