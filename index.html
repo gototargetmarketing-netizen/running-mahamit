@@ -358,9 +358,17 @@
                 <a href="#register" class="text-brand-cream/80 hover:text-brand-gold transition">สมัครแข่งขัน</a>
             </div>
             <div>
-                <a href="#register" class="bg-brand-gold text-brand-dark px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-brand-lightGold transition shadow-lg shadow-brand-gold/20 flex items-center gap-2">
-                    <i class="fa-solid fa-person-running"></i> สมัครเลย
-                </a>
+<a href="#register"
+   class="bg-brand-gold text-brand-dark px-5 py-2.5 rounded-full hover:bg-brand-lightGold transition shadow-lg shadow-brand-gold/20 flex items-center gap-2">
+
+    <i class="fa-solid fa-person-running text-sm"></i>
+
+    <span class="flex flex-col items-center leading-tight">
+        <span class="text-sm font-bold">สมัครเลย</span>
+        <span class="text-[10px] font-medium opacity-70">Register</span>
+    </span>
+
+</a>
             </div>
         </div>
     </header>
@@ -415,13 +423,13 @@
     <i class="fa-solid fa-calendar-days"></i>
 
     <span class="font-semibold">
-        Early bird ราคาพิเศษ 349 บาท จากปกติ 389 บาท
+        Early bird ราคาพิเศษ 349 บาท
     </span>
 
     <span class="opacity-60"> </span>
 
     <span class="font-semibold">
-        3 วันเท่านั้น ( ตั้งแต่ 30 ส.ค. - 1 ก.ย.69 เวลา 23:59 น. )
+        3 วันเท่านั้น (30 ส.ค. - 1 ก.ย. 69)
     </span>
 
 </div>
@@ -479,12 +487,28 @@
 </div>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                <a href="#register" class="w-full sm:w-auto bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:opacity-95 transition shadow-xl shadow-brand-gold/30 flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-ticket"></i> กรอกใบสมัครวิ่งออนไลน์
-                </a>
-                <a href="#details" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-medium text-lg transition flex items-center justify-center gap-3 backdrop-blur-sm">
-                    <i class="fa-solid fa-circle-info"></i> รายละเอียดระยะวิ่ง
-                </a>
+<a href="#register"
+   class="w-full sm:w-auto bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark px-8 py-4 rounded-xl hover:opacity-95 transition shadow-xl shadow-brand-gold/30 flex items-center justify-center gap-3">
+
+    
+
+    <span class="flex flex-col items-center leading-tight">
+        <span class="text-lg sm:text-lg font-bold">กรอกใบสมัครวิ่งออนไลน์</span>
+        <span class="text-xs sm:text-sm font-medium opacity-60">Online Registration</span>
+    </span>
+
+</a>
+               <a href="#details"
+   class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-medium transition flex items-center justify-center gap-3 backdrop-blur-sm">
+
+    
+
+    <span class="flex flex-col items-center leading-tight">
+        <span class="text-lg sm:text-lg font-semibold">รายละเอียดระยะวิ่ง</span>
+        <span class="text-xs sm:text-sm font-medium opacity-60">Race Details</span>
+    </span>
+
+</a>
             </div>
 
             <!-- Quick stats bar -->
@@ -506,8 +530,48 @@
         </div>
     </section>
 
-    <section id="details" class="py-20 bg-brand-olive/50 relative">
+    <section id="details" class="pt-10 pb-20 bg-brand-olive/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Route Maps -->
+<div class="max-w-6xl mx-auto mb-16">
+
+    <div class="text-center mb-8">
+        <span class="text-brand-gold text-sm font-semibold tracking-widest uppercase">
+            Race Routes
+        </span>
+
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">
+            เส้นทางวิ่ง
+        </h2>
+
+        <p class="text-brand-cream/60 text-sm mt-2">
+            View the race routes before choosing your distance
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- 6 KM -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/30">
+            <img
+                src="./map1.jpg"
+                alt="เส้นทางวิ่ง 6 KM - MAHAMIT MAERIM CROSS COUNTRY"
+                class="w-full h-auto block"
+            >
+        </div>
+
+        <!-- 11 KM -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/30">
+            <img
+                src="./map2.jpg"
+                alt="เส้นทางวิ่ง 11 KM - MAHAMIT MAERIM CROSS COUNTRY"
+                class="w-full h-auto block"
+            >
+        </div>
+
+    </div>
+
+</div>
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-brand-gold text-sm font-semibold tracking-widest uppercase">Categories & Pricing</span>
                 <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">เลือกระยะทางที่ท้าทายคุณ</h2>
@@ -904,13 +968,13 @@
 </label>
                             <select id="shirtSize" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกไซส์เสื้อ --</option>
-                                <option value="XS">XS (รอบอก 34 นิ้ว)</option>
-                                <option value="S">S (รอบอก 36 นิ้ว)</option>
-                                <option value="M">M (รอบอก 38 นิ้ว)</option>
-                                <option value="L">L (รอบอก 40 นิ้ว)</option>
-                                <option value="XL">XL (รอบอก 42 นิ้ว)</option>
-                                <option value="2XL">2XL (รอบอก 44 นิ้ว)</option>
-                                <option value="3XL">3XL (รอบอก 46 นิ้ว)</option>
+                                <option value="XS">XS (รอบอก/Bust 34 นิ้ว / inch) </option>
+                                <option value="S">S (รอบอก/Bust 36 นิ้ว / inch)</option>
+                                <option value="M">M (รอบอก/Bust 38 นิ้ว / inch)</option>
+                                <option value="L">L (รอบอก/Bust 40 นิ้ว / inch)</option>
+                                <option value="XL">XL (รอบอก/Bust 42 นิ้ว / inch)</option>
+                                <option value="2XL">2XL (รอบอก/Bust 44 นิ้ว / inch)</option>
+                                <option value="3XL">3XL (รอบอก/Bust 46 นิ้ว / inch)</option>
                             </select>
                         </div>
                     </div>
@@ -953,13 +1017,13 @@
 </label>
                             <select id="emergencyRelation" required class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกความสัมพันธ์ --</option>
-                                <option value="มารดา">มารดา</option>
-                                <option value="บิดา">บิดา</option>
-                                <option value="ภรรยา">ภรรยา</option>
-                                <option value="สามี">สามี</option>
-                                <option value="เพื่อน">เพื่อน</option>
-                                <option value="พี่น้อง">พี่น้อง</option>
-                                <option value="อื่นๆ">อื่นๆ</option>
+                                <option value="มารดา">มารดา / Mother</option>
+                                <option value="บิดา">บิดา / Father</option>
+                                <option value="ภรรยา">ภรรยา / Wife</option>
+                                <option value="สามี">สามี / Husband</option>
+                                <option value="เพื่อน">เพื่อน / Friend</option>
+                                <option value="พี่น้อง">พี่น้อง / Sibling</option>
+                                <option value="อื่นๆ">อื่นๆ / Other</option>
                             </select>
                         </div>
 
@@ -1293,8 +1357,12 @@
 
                 <!-- Submit Button -->
                 <div class="pt-6 text-center">
-                    <button type="submit" id="submitBtn" class="w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark font-bold text-xl rounded-2xl hover:opacity-95 transition shadow-2xl shadow-brand-gold/40 flex items-center justify-center gap-3 mx-auto">
-                        <i class="fa-solid fa-paper-plane"></i> ยืนยันการสมัครวิ่ง
+                    <button type="submit" id="submitBtn" class="w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-brand-gold to-brand-lightGold text-brand-dark font-bold text-xl rounded-2xl hover:opacity-95 transition shadow-2xl shadow-brand-gold/40 flex items-center justify-center gap-3 mx-auto" flex items-center justify-center gap-3>
+                        
+<span class="flex flex-col items-center leading-tight">
+    <span>ยืนยันการสมัครวิ่ง</span>
+    <span class="text-xs font-medium opacity-60 mt-1">Confirm Registration</span>
+</span>
                     </button>
                     <p class="text-xs text-brand-cream/60 mt-3">ขอบคุณที่มาร่วมวิ่งกับเรา</p>
                 </div>
@@ -1377,10 +1445,10 @@
     <span class="text-brand-cream/60">รหัสลงทะเบียน:</span>
     <span id="resRegistrationId" class="text-brand-gold font-bold">--</span>
 </div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล:</span> <span id="resName" class="text-white font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง:</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ:</span> <span id="resShirt" class="text-white font-medium">--</span></div>
-                <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ:</span> <span id="resAmount" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ชื่อ-นามสกุล/Name:</span> <span id="resName" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ระยะวิ่ง/Race Detail:</span> <span id="resCategory" class="text-brand-gold font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ไซส์เสื้อ/Shirt Size:</span> <span id="resShirt" class="text-white font-medium">--</span></div>
+                <div class="flex justify-between"><span class="text-brand-cream/60">ยอดชำระ/Transfer amount:</span> <span id="resAmount" class="text-white font-medium">--</span></div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
