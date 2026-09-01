@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAHAMIT MAERIM CROSS COUNTRY - ลงทะเบียนสมัครวิ่ง</title>
+
+<!-- Vercel Web Analytics -->
+<script>
+    window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+    };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GCHNV98WW6"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GCHNV98WW6');
+</script>
+
+<title>MAHAMIT MAERIM CROSS COUNTRY - ลงทะเบียนสมัครวิ่ง</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -423,33 +442,16 @@
     <i class="fa-solid fa-calendar-days"></i>
 
     <span class="font-semibold">
-         วันนี้ - 15 ตุลาคม 2569
+        Early bird ราคาพิเศษ 349 บาท
     </span>
 
     <span class="opacity-60"> </span>
 
     <span class="font-semibold">
-        ราคาพิเศษ 369 บาท
+        3 วันเท่านั้น (30 ส.ค. - 1 ก.ย. 69)
     </span>
 
 </div>
-
-
-<!-- Partner Label -->
-<div class="flex items-center justify-center gap-3 mb-3">
-    <span class="h-px w-10 sm:w-16 bg-brand-gold/50"></span>
-
-<span class="text-brand-gold text-lg sm:text-2xl font-semibold tracking-[0.3em] uppercase">
-    FOR PARTNER
-</span>
-
-    <span class="h-px w-10 sm:w-16 bg-brand-gold/50"></span>
-</div>
-
-
-        
-
-            
             
             <h2 class="text-xl sm:text-2xl font-light text-brand-cream/90 tracking-widest mb-2">
                 เตรียมพบกับ “งานวิ่ง” ครั้งใหม่
@@ -651,7 +653,7 @@
 
 
  <li class="flex items-start gap-2">
-    <i class="fa-solid fa-xmark text-brand-gold mt-1"></i>
+    <i class="fa-solid fa-check text-brand-gold mt-1"></i>
     <span>
         <span class="block">ไม่มีการแข่งขัน</span>
         <span class="block text-xs text-brand-cream/50">No competition category
@@ -668,12 +670,19 @@
 
     <div class="flex flex-col items-start gap-2">
 
+        <span class="px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-bold">
+            EARLY BIRD (30 AUG - 1 SEP 2026)
+        </span>
+        
+         <span class="text-lg text-brand-cream/50 line-through">
+            399 บาท
+        </span>
 
 
     </div>
 
     <div class="text-4xl md:text-5xl font-extrabold text-brand-gold mt-1">
-        399
+        349
         <span class="text-base md:text-lg font-normal text-brand-cream/70">
             บาท
         </span>
@@ -869,12 +878,21 @@
 
  <div class="flex flex-col items-start gap-2">
 
+        <span class="px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-bold">
+            EARLY BIRD (30 AUG - 1 SEP 2026)
+        </span>
+
+
+        
+        <span class="text-lg text-brand-cream/50 line-through">
+            399 บาท
+        </span>
 
    
     </div>
 
     <div class="text-4xl md:text-5xl font-extrabold text-brand-gold mt-1">
-        399
+        349
         <span class="text-base md:text-lg font-normal text-brand-cream/70">
             บาท
         </span>
@@ -1101,8 +1119,8 @@
 </label>
                             <select id="raceCategory" required onchange="updatePrice()" class="w-full bg-brand-dark/60 border border-brand-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
                                 <option value="" disabled selected>-- เลือกระยะวิ่ง --</option>
-                                <option value="Fun Run 6 KM">🏃 Fun Run 6 KM (399 บาท)</option>
-                                <option value="Mini Marathon 11 KM">🏃‍♂️ Mini Marathon 11 KM (399 บาท)</option>
+                                <option value="Fun Run 6 KM">🏃 Fun Run 6 KM (349 บาท)</option>
+                                <option value="Mini Marathon 11 KM">🏃‍♂️ Mini Marathon 11 KM (349 บาท)</option>
                                 
                             </select>
                         </div>
@@ -1662,8 +1680,8 @@
 
         // ราคาแต่ละระยะ
         const RACE_PRICES = {
-            'Fun Run 6 KM': 399,
-            'Mini Marathon 11 KM': 399
+            'Fun Run 6 KM': 349,
+            'Mini Marathon 11 KM': 349
             
         };
 
